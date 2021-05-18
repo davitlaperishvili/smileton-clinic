@@ -10,10 +10,6 @@
 </head>
 <body>
 
-<?php if(is_active_sidebar('header_widget')): ?>
-	<?php dynamic_sidebar('header_widget'); ?>
-<?php endif; ?>
-
 <?php
 	wp_nav_menu([
 		'theme_location'	=> 'header_menu',
