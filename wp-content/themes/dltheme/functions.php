@@ -23,4 +23,3 @@ foreach($dl_includes as $file){
 	require_once $dl_inc_dir . $file;
 }
 
-?>
