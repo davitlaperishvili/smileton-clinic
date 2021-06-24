@@ -48,5 +48,15 @@ function pagination_bar($custom_query){
 		));
 	}
 }
+add_filter( 'paginate_links', function($link){
+
+    //Remove link page/1/ from the first element and prev element
+    
+    if(is_paged()){
+        $link= str_replace('page/1/', '', $link);
+    }
+
+    return $link;
+} );
 
 ?>
