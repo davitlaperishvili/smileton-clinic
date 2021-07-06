@@ -32,4 +32,24 @@ $(document).ready(function(){
 	$("div.modal_search div.close, div.modal_search div.search_wrap div.search_overlay").click(function(){
 		$("div.modal_search").fadeOut(200);
 	});
+
+	//start animation
+	function animation() {
+		if($(window).width() > 1024){
+		var y = $(window).scrollTop();
+		$(
+			""
+		)
+			.filter(function () {
+				var $this = $(this);
+				return (
+					$(this).offset().top < y + $(window).height() &&
+					$(this).offset().top + $(this).height() > y
+				);
+			})
+			.addClass("visible");
+		}
+	}
+	animation();
+	$(window).bind("load resize scroll", animation);
 });

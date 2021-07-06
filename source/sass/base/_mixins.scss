@@ -31,3 +31,11 @@
 		src: $src;
 	}
 }
+// make transition animation
+@mixin transition($end_count , $delay_time) {
+	@for $i from 1 through $end_count {
+		&:nth-child(#{$i}) {
+		transition-delay: #{$i * $delay_time}s ;
+		}
+	}
+}
