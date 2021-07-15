@@ -1,7 +1,7 @@
-$(document).ready(function(){
-	// form (radio / checkbox)
+export default function formFunctions(){
+	// Artmedia form (radio / checkbox)
 	$("input[type='radio'].artform, input[type='checkbox'].artform").wrap("<div class='artform_wrap'></div>").after("<span></span>");
-	// form (file upload)
+	// Artmedia form (file upload)
 	$("input.artfile").each(function(){
 		var $input = $(this), $label = $input.next("label"), labelVal = $label.html();
 		$input.on("change", function(e){
@@ -23,4 +23,4 @@ $(document).ready(function(){
 			$input.removeClass("has-focus");
 		});
 	});
-});
+}

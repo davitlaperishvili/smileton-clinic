@@ -1,4 +1,4 @@
-$(document).ready(function(){
+export default function treeMenu(){
 	// ჩაშლილი მენიუს და მისი ზე მენიუების ავტომატური მონიშვნა
 	$("nav.tree_menu > ul > li ul li.active").parents("li").addClass("active");
 	// ჩაშლილი მენიუ
@@ -14,7 +14,7 @@ $(document).ready(function(){
 			$(this).find("span.tree_minus").removeClass("tree_minus").addClass("tree_plus");
 		}
 	});
-	$("nav.tree_menu > ul li.hasul > span.tree_indicator").click(function(){
+	$("nav.tree_menu > ul li.hasul > span.tree_indicator").on('click', function(){
 		if($(this).siblings("ul").is(":visible")){
 			$(this).parents("li").removeClass("opened").addClass("closed");
 			$(this).removeClass("tree_minus").addClass("tree_plus");
@@ -29,7 +29,7 @@ $(document).ready(function(){
 			});
 		}
 	});
-	$("nav.tree_menu > ul li.hasul > a").click(function(){
+	$("nav.tree_menu > ul li.hasul > a").on('click', function(){
 		if($(this).siblings("ul").is(":visible")){
 			$(this).parents("li").removeClass("opened").addClass("closed");
 			$(this).siblings("span").removeClass("tree_minus").addClass("tree_plus");
@@ -44,4 +44,4 @@ $(document).ready(function(){
 			});
 		}
 	});
-});
+}

@@ -1,6 +1,6 @@
-$(document).ready(function(){
+export default function hamburderMenu(){
 	// Sub menu positioning based on viewport width
-	$(window).bind("load resize", function(e){
+	$(window).on("load resize", function(e){
 		$("nav.navigation > ul > li ul").each(function(e){
 			var $this = $(this);
 			var $panjara = $(window).width();
@@ -17,11 +17,18 @@ $(document).ready(function(){
 	});
 	// Automatic select of horizontal menu of active items
 	$("nav.navigation > ul > li ul li.active").parents("li").addClass("active");
+	// Sub menu arrow
+	$("nav.navigation > ul > li").each(function(){
+		var $this = $(this);
+		if($this.has("ul").length){
+			$this.addClass("hasul");
+		}
+	});
 	// Clone to responsive menu
 	var clone = $("nav.navigation > ul").clone();
 	$("div.resp_menu div.resp_menu_ul").html(clone);
 	// Responsive menu
-	$("div.resp_menu > div.resp_menu_toggle").click(function(){
+	$("div.resp_menu > div.resp_menu_toggle").on('click', function(){
 		var resp_menu = $(this).next("div.resp_menu_ul");
 		if(resp_menu.is(":hidden")){
 			$(this).addClass("resp_menu_toggled");
@@ -32,7 +39,7 @@ $(document).ready(function(){
 		}
 	});
 	$("div.resp_menu ul li").has("ul").append('<div class="plus_minus"><div class="plus"></div><div class="minus"></div></div>');
-	$("div.resp_menu ul li div.plus_minus").click(function(){
+	$("div.resp_menu ul li div.plus_minus").on('click', function(){
 		var resp_sub_menu = $(this).prev("ul");
 		if(resp_sub_menu.is(":hidden")){
 			$(this).addClass("plus_minus_toggled");
@@ -42,4 +49,4 @@ $(document).ready(function(){
 			resp_sub_menu.slideUp(400);
 		}
 	});
-});
+}

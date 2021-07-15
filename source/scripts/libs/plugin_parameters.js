@@ -1,18 +1,25 @@
-$(document).ready(function(){
-	//Swipper slider 
-	let mainSlider = new Swiper('.main_slider', {
-		speed: 1000,
-		loop: true,
-		slidesPerView: 1,
-		navigation: {
-			nextEl: '.main_slider_next',
-			prevEl: '.main_slider_prev',
-		}
-	});
+export default function plugindParameters(){
 	// Selector styling
-	$("select.selectori").select2({
-		allowClear: true,
-		minimumResultsForSearch: -1
+	$("select.selectori").each(function(){
+		var placeholder = $(this).data('placeholder') || 'Default placeholder';
+		$(this).select2({
+			allowClear: true,
+			minimumResultsForSearch: -1,
+			placeholder: placeholder
+		}); 
+	});
+	// Slider
+	$(".main_slider").slick({
+		autoplay: true,
+		dots: false,
+		arrows: true,
+		infinite: true,
+		speed: 1000,
+		slidesToShow: 1,
+		fade: true,
+		adaptiveHeight: true,
+		prevArrow: '<em class="ri-arrow-left-s-line"></em>',
+		nextArrow: '<em class="ri-arrow-right-s-line"></em>'
 	});
 	// Gallery
 	$(".magnific").each(function(){
@@ -38,4 +45,4 @@ $(document).ready(function(){
 			fixedContentPos: false
 		});
 	}
-});
+}
