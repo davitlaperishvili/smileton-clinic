@@ -1,6 +1,6 @@
-import 'select2';
-import 'slick-carousel';
-import 'magnific-popup';
+// import 'select2';
+// import 'slick-carousel';
+// import 'magnific-popup';
 
 import  hamburderMenu from './libs/hamburger_menu.js';
 import formFunctions from './libs/form_functions.js';
@@ -13,9 +13,9 @@ import plugindParameters from './libs/plugin_parameters.js';
 // window.$ = $;
 
 $(window).on('load', function(){
-	formFunctions();
-	additionalFunctions();
+	//formFunctions();
+	//additionalFunctions();
+	//plugindParameters();
 	hamburderMenu();
-	plugindParameters();
 	console.log('ready')
 });
