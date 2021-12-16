@@ -8,7 +8,6 @@
 	<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/scripts/fonts/Roboto-Bold.ttf" as="font" crossorigin>
 	<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/scripts/fonts/Roboto-Regular.ttf" as="font" crossorigin>
 	<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/scripts/fonts/Roboto-Medium.ttf" as="font" crossorigin>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/scripts/swiper/swiper.css">
 	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png">
 	<!-- <script src="https://kit.fontawesome.com/990ba33bd4.js" crossorigin="anonymous"></script> -->
 </head>
