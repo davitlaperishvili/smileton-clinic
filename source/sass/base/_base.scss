@@ -97,3 +97,27 @@ div.container{
 	}
 }
 // Container
+
+// Mobile fixed button
+.mobile_fixed_button {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: none;
+	z-index: 9999;
+	@media (max-width: 1024px) {
+		display: block;
+	}
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $cwhite;
+		text-transform: uppercase;
+		font-size: 18px;
+		width: 100%;
+		padding: 10px 0;
+		background: $ccorp;
+	}
+}
