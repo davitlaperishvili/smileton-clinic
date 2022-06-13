@@ -30,15 +30,17 @@ export default function hamburderMenu(){
 	// Responsive menu
 	$("div.resp_menu > div.resp_menu_toggle").on('click', function(){
 		var resp_menu = $(this).next("div.resp_menu_ul");
-		if(resp_menu.is(":hidden")){
+		if(!resp_menu.hasClass("is-active")){
 			$(this).addClass("resp_menu_toggled");
-			resp_menu.fadeIn(500);
+			//resp_menu.fadeIn(500);
+			resp_menu.addClass('is-active');
 		}else{
 			$(this).removeClass("resp_menu_toggled");
-			resp_menu.fadeOut(500);
+			//resp_menu.fadeOut(500);
+			resp_menu.removeClass('is-active');
 		}
 	});
-	$("div.resp_menu ul li").has("ul").append('<div class="plus_minus"><div class="plus"></div><div class="minus"></div></div>');
+	$("div.resp_menu ul li").has("ul").append('<div class="plus_minus"><em class="ri-arrow-down-s-line"></em></div>');
 	$("div.resp_menu ul li div.plus_minus").on('click', function(){
 		var resp_sub_menu = $(this).prev("ul");
 		if(resp_sub_menu.is(":hidden")){

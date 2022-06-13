@@ -98,6 +98,19 @@ div.container{
 }
 // Container
 
+// show more
+.morecontent span {
+	display: none;
+}
+.morelink {
+	display: block;
+	color: $cbase;
+	font-size: 12px;
+	&:hover {
+		color: $cred;
+	}
+}
+
 // Mobile fixed button
 .mobile_fixed_button {
 	position: fixed;

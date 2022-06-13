@@ -6,25 +6,41 @@ nav.navigation{
 	> ul{
 		@extend .no-list;
 		display: flex;
+		margin-right: 100px;
 		> li{
-			margin-right: 25px;
+			margin-right: 55px;
 			padding: 10px 0;
 			&:last-child{
 				margin-right: 0;
 			}
 			> a{
 				@extend .trans-4;
-				color: $cbase;
-				font-size: 14px;
-				font-family: $ffmain;
-				font-weight: 700;
-				text-transform: uppercase;
+				color: $cwhite;
+				font-size: 16px;
+				font-family: $ffbase;
+				font-weight: 400;
+			}
+			&.menu-item-has-children{
+				display: flex;
+				align-items: center;
+				&:after{
+					content: "\ea4d";
+					display: block;
+					margin-left: 8px;
+					font-family: $ffremix;
+					font-weight: 400;
+					font-size: 16px;
+					color: $cwhite;
+				}
 			}
 			&.current-menu-item,
 			&.current-menu-ancestor,
 			&:hover{
 				> a{
-					color: $ccorp;
+					color: $cred;
+				}
+				&:after{
+					color: $cred;
 				}
 			}
 			ul{
@@ -52,9 +68,23 @@ nav.navigation{
 						@extend .trans-4;
 						display: block;
 						position: relative;
-						padding: 7px 0;
+						padding: 10px 0;
 						color: $cbase;
-						font-size: 12px;
+						font-size: 14px;
+					}
+					&.menu-item-has-children{
+						display: flex;
+						align-items: center;
+						&:after{
+							content: "\ea4d";
+							display: block;
+							margin-left: 8px;
+							font-family: $ffremix;
+							font-weight: 400;
+							font-size: 16px;
+							color: $cbase;
+							transform: rotate(-90deg);
+						}
 					}
 					&.current-menu-item,
 					&.current-menu-ancestor,
@@ -92,7 +122,7 @@ nav.navigation{
 // Responsive menu
 div.resp_menu{
 	display: none;
-	position: absolute;
+	position: fixed;
 	width: 35px;
 	height: 35px;
 	top: 20px;
@@ -111,16 +141,16 @@ div.resp_menu{
 		cursor: pointer;
 		div{
 			position: absolute;
-			width: 15px;
-			height: 1px;
+			width: 25px;
+			height: 2px;
 			top: 50%;
 			right: 10px;
 			background-color: $cwhite;
 			&:first-child{
-				margin-top: -6px;
+				margin-top: -7px;
 			}
 			&:last-child{
-				margin-top: 6px;
+				margin-top: 7px;
 			}
 		}
 		&.resp_menu_toggled{
@@ -140,19 +170,25 @@ div.resp_menu{
 		}
 	}
 	div.resp_menu_ul{
-		display: none;
-		position: absolute;
-		width: 200px;
-		top: 35px;
+		position: fixed;
+		width: 90vw;
+		max-height: 80vh;
+		top: 75px;
 		right: 0;
-		padding: 10px 15px;
+		transform: translateX(100%);
+		padding: 10px 25px;
 		background-color: $ccorp;
 		border-radius: $bdrm $bdrn $bdrm $bdrm;
+		transition: 0.6s;
+		overflow-y: scroll;
+		&.is-active{
+			transform: translateX(0);
+		}
 		> ul{
 			@extend .no-list;
 			> li{
 				position: relative;
-				padding: 10px 5px;
+				padding: 20px 5px;
 				border-bottom: 1px solid rgba($cwhite, 0.1);
 				&:last-child{
 					border-bottom: none;
@@ -166,12 +202,20 @@ div.resp_menu{
 				}
 				div.plus_minus{
 					@extend .trans-all-4;
+					display: flex;
+					align-items: center;
+					justify-content: center;
 					position: absolute;
-					width: 30px;
-					height: 30px;
-					top: 5px;
+					width: 45px;
+					height: 45px;
+					top: 9px;
 					right: 0;
 					background-color: $ccorp;
+					em{
+						color: $cwhite;
+						font-size: 30px;
+						transition: 0.4s;
+					}
 					cursor: pointer;
 					div.plus,
 					div.minus{
@@ -181,14 +225,14 @@ div.resp_menu{
 						background-color: $cwhite;
 						left: 50%;
 						top: 15px;
-						transform: translateX(-50%);
+						transform: translateX(0%) rotate(130deg);
 					}
 					div.minus{
-						transform: translateX(-50%) rotate(90deg);
+						transform: translateX(-55%) rotate(55deg);
 					}
 					&.plus_minus_toggled{
-						div.minus{
-							transform: translateX(-50%) rotate(0deg);
+						em{
+							transform: rotate(180deg);
 						}
 					}
 				}
@@ -197,13 +241,13 @@ div.resp_menu{
 					padding: 10px 0 0 5px;
 					li{
 						position: relative;
-						padding-bottom: 5px;
+						padding: 15px 0;
 						&:before{
 							display: block;
 							position: absolute;
 							content: "";
 							left: 0;
-							top: 10px;
+							top: 25px;
 							width: 5px;
 							height: 1px;
 							background-color: $cwhite;
@@ -218,7 +262,7 @@ div.resp_menu{
 						}
 						div.plus_minus{
 							height: 20px;
-							top: 0px;
+							top: 15px;
 							div.plus,
 							div.minus{
 								top: 10px;

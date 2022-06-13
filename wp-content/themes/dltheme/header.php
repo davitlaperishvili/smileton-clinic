@@ -15,9 +15,9 @@
 <body <?php body_class(); ?> >
 
 <?php 
-	$phoneVisible = cmb2_get_option('app_options_page', 'main_phone_number');
+	$phoneVisible = get_field('phone_number', 'option');
 	$phone = preg_replace("/[^0-9]/", "", $phoneVisible);
-	$mail = cmb2_get_option('app_options_page', 'contact_main_email');
+	$email = get_field('email', 'option');
 ?>
 
 <div class="resp_menu trans-no-all">
