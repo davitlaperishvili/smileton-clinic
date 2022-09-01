@@ -7,7 +7,6 @@
 	$phone = preg_replace("/[^0-9]/", "", $phoneVisible);
 	$email = get_field('email', 'option');
 ?>
-
 <div id="panel"></div>
 <div class="burger">
     <figure></figure>
