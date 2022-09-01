@@ -12,7 +12,7 @@ add_action('wp_enqueue_scripts', 'load_styles');
 add_action( 'wp_footer', 'load_scripts' );
 function load_scripts(){
 	//wp_enqueue_script('swiper-script', get_template_directory_uri() . '/scripts/swiper/swiper.js');
+	wp_enqueue_script('assets-script', get_template_directory_uri() . '/scripts/js/assets.js');
 	wp_enqueue_script('main-script', get_template_directory_uri() . '/scripts/js/main.js');
-	wp_enqueue_script('micromodal-script', 'https://unpkg.com/micromodal/dist/micromodal.min.js');
 	// wp_enqueue_style('main-script');
 }

@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/scripts/fonts/remixicon.woff2" as="font" crossorigin>
-	<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/scripts/fonts/Roboto-Bold.ttf" as="font" crossorigin>
-	<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/scripts/fonts/Roboto-Regular.ttf" as="font" crossorigin>
-	<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/scripts/fonts/Roboto-Medium.ttf" as="font" crossorigin>
-	<meta name="robots" content="noindex">
-	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png">
-	<!-- <script src="https://kit.fontawesome.com/990ba33bd4.js" crossorigin="anonymous"></script> -->
+<html lang="ru" class="bx-core bx-no-touch bx-no-retina bx-chrome desktop landscape no-touch">
+    <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/favicons/apple-touch-icon.png?v=3">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/favicons/favicon-32x32.png?v=3">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/favicons/favicon-16x16.png?v=3">
+	<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/favicons/manifest.json?v=3">
+	<link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/favicons/safari-pinned-tab.svg?v=3" color="#5bbad5">
+	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicons/favicon.ico?v=3">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/favicons/browserconfig.xml?v=3">
+	<meta name="theme-color" content="#ffffff">
+	<!-- favicons -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
@@ -20,29 +26,8 @@
 	$email = get_field('email', 'option');
 ?>
 
-<div class="resp_menu trans-no-all">
-	<div class="resp_menu_toggle">
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-	</div>
-	<div class="resp_menu_ul"></div>
-</div>
 
-<div class="mobile_fixed_button">
-	<a href="tel:<?php echo $phone ?>">Call Us</a>
-</div>
-
-<header class="trans-all-4">
-	<div class="container">
-		<div class="logo">
-			<a href="<?php echo home_url(); ?>">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo">
-			</a>
-		</div>
-		<div class="header_menu">
-			<?php
+<!-- <?php
 				wp_nav_menu([
 					'theme_location'	=> 'header_menu',
 					'menu'				=> 'header_menu', 
@@ -50,7 +35,4 @@
 					'container_class'	=> 'navigation',
 					'menu_class'		=> 'navigation'
 				]);
-			?>
-		</div>
-	</div>
-</header>
+			?> -->
