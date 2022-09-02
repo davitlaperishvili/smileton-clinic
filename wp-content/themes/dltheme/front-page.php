@@ -6,6 +6,9 @@
 	$phoneVisible = get_field('phone_number', 'option');
 	$phone = preg_replace("/[^0-9]/", "", $phoneVisible);
 	$email = get_field('email', 'option');
+	$whatsapp = get_field('whatsapp', 'option');
+	$adress = get_field('adress', 'option');
+	$site_logo = get_field('site_logo', 'option');
 ?>
 <div id="panel"></div>
 <div class="burger">
@@ -15,7 +18,7 @@
     <aside class="page__aside">
         <div class="page__aside__scroller">
             <div class="aside">
-            <a href="#s-intro" class="scrollto"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="Логотип" class="aside__logo"></a>
+            <a href="#s-intro" class="scrollto"><img src="<?php echo $site_logo['url'] ?>" alt="<?php echo $site_logo['alt'] ?>" class="aside__logo"></a>
             <nav class="aside__nav">
                 <a href="#s-serts" class="aside__nav__link scrollto">
                     <i class="i-nav-about"></i>
@@ -62,7 +65,13 @@
                 <i class="i-phone"></i>
                 <div class="aside__phone__main">
                     <a href="tel:<?php echo $phone ?>" class="aside__phone__number"><?php echo $phoneVisible ?></a>
-                    <a href="https://wa.me/" class="aside__phone__wa blue-link" target="_blank">Спросить по WhatsApp</a>
+                    <?php 
+                        if($$hatsapp){
+                            ?>
+                                <a href="<?php echo $whatsapp ?>" class="aside__phone__wa blue-link" target="_blank">Спросить по WhatsApp</a>
+                            <?php
+                        }
+                    ?>
                 </div>
             </div>
             <div class="aside__address">
@@ -70,71 +79,80 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/images/aside-map.jpg" alt="миникарта" class="">
                 </a>
                 <div class="aside__address__main">
-                    <div class="aside__address__city">Москва</div>
-                    <div class="aside__address__str">ул. Перерва 45, к. 1</div>
-                    <div class="aside__address__metro"><mark>M</mark> Братиславская</div>
+                    <?php 
+                        if($adress['city']){
+                            ?> 
+                                <div class="aside__address__city"><?php echo $adress['city'] ?></div>
+                            <?php
+                        }
+                    ?>
+                    <?php 
+                        if($adress['street']){
+                            ?> 
+                                <div class="aside__address__str"><?php echo $adress['street'] ?></div>
+                            <?php
+                        }
+                    ?>
+                    <?php 
+                        if($adress['metro']){
+                            ?> 
+                                <div class="aside__address__metro"><mark>M</mark> <?php echo $adress['metro'] ?></div>
+                            <?php
+                        }
+                    ?>
                 </div>
             </div>
-            <a href="yandexnavi://build_route_on_map?lat_to=55.660892&amp;lon_to=37.747065" class="aside__navigator">
+            <!-- <a href="yandexnavi://build_route_on_map?lat_to=55.660892&amp;lon_to=37.747065" class="aside__navigator">
             <img src="<?php echo get_template_directory_uri(); ?>/images/navigator.png" alt="Навигатор" width="30">
-            <span>Путь в Яндекс.Навигаторе</span>
+            <span>Путь в Яндекс.Навигаторе</span> -->
             </a>
             </div>
         </div>
     </aside>
     <main class="page__main">
-        <section class="s-intro" id="s-intro">
+        <?php $hero = get_field('hero') ?>
+        <section class="s-intro" id="s-intro" style="background: url(<?php echo $hero['block_image']['url'] ?>) center center no-repeat var(--sectionBG);">
             <div class="container">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Логотип" class="logo-mob">
+            <img src="<?php echo $site_logo['url'] ?>" alt="<?php echo $site_logo['alt'] ?>" class="logo-mob">
             <h1 class="h1">
-                Lorem ipsum dolor sit amet.		
+                <?php echo $hero['block_title'] ?>	
             </h1>
             <div class="intro-mob">
                 <div class="aside__phone">
                     <i class="i-phone"></i>
                     <div class="aside__phone__main">
                         <a href="tel:<?php echo $phone ?>" class="aside__phone__number"><?php echo $phoneVisible ?></a>
-                        <a href="https://wa.me/79260222223" class="aside__phone__wa blue-link" target="_blank">Спросить по WhatsApp</a>
+                        <?php
+                            if($whatsapp){
+                                ?>
+                                    <a href="<?php echo $whatsapp ?>" class="aside__phone__wa blue-link" target="_blank">Спросить по WhatsApp</a>
+                                <?php
+                            }
+                        ?>
                     </div>
                 </div>
                 <button class="btn fancy-modal" data-src="#modal-order">Оставить заявку</button>
             </div>
             <div class="border-block">
                 <div class="border-block__content">
-                    <form class="ajax-form vertical-form form-steps" autocomplete="off">
-                        <input type="hidden" value="Новая заявка" name="form_subject">
-                        <div class="form-step-1">
-                        <div class="form-header">
-                            <div class="form-header__bubble">
-                                Напишите, что вас беспокоит, и я вам обязательно помогу							
-                            </div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man">
-                        </div>
-                        <textarea name="user_comment" placeholder="Опишите зубную боль" data-label="Комментарий" class="input-text" rows="5"></textarea>
-                        <button class="btn js-form-step-next">Следующий шаг</button>
-                        </div>
-                        <div class="form-step-2">
-                        <div class="form-header">
-                            <div class="form-header__bubble">
-                                Наш администратор перезвонит вам в течение 2 минут.							
-                            </div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man">
-                        </div>
-                        <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                        <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                        <button type="submit" class="btn">Отправить</button>
-                        <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
-                        </div>
-                    </form>
+                    <div class="ajax-form vertical-form form-steps">
+                        <?php echo do_shortcode('[contact-form-7 id="741" title="2 Steps Contact Form"]') ?>
+                    </div>
                 </div>
             </div>
             </div>
-            <a href="https://youtu.be/AtWFB2O8sT4" class="intro-video fancy-video">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/play-text.png" alt="text" class="intro-video__text">
-            <span class="play-btn"><i class="i-play"></i></span>
-            </a>
+            <?php 
+                if($hero['video_url']){
+                    ?>
+                        <a href="<?php echo $hero['video_url'] ?>" class="intro-video fancy-video">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/play-text.png" alt="text" class="intro-video__text">
+                        <span class="play-btn"><i class="i-play"></i></span>
+                        </a>
+                    <?php
+                }
+            ?>
         </section>
-        <section class="s-why">
+        <!-- <section class="s-why">
             <div class="container">
             <div class="row">
                 <div class="grid-4 grid-12_s">
@@ -201,16 +219,6 @@
                             <img src="<?php echo get_template_directory_uri(); ?>/images/43a669739da7d4c957861471bf911d99.jpg" alt="img" class="why-panel__img flickity-lazyloaded">
                         </div>
                         </div>
-                        <!-- <button class="flickity-button flickity-prev-next-button previous" type="button" aria-label="Previous">
-                        <svg class="flickity-button-icon" viewBox="0 0 100 100">
-                            <path d="M45.7,36.2L32.1,49.7c-0.2,0.1-0.2,0.4,0,0.5l13.6,13.6c0.2,0.2,0.4,0.2,0.5,0l1.7-1.7L37.3,51.4h29.2 c0.8,0,1.5-0.7,1.5-1.5l0,0c0-0.8-0.7-1.5-1.5-1.5h-29L48,37.9l-1.7-1.7C46.1,36,45.8,36,45.7,36.2L45.7,36.2z" class="arrow"></path>
-                        </svg>
-                        </button>
-                        <button class="flickity-button flickity-prev-next-button next" type="button" aria-label="Next">
-                        <svg class="flickity-button-icon" viewBox="0 0 100 100">
-                            <path d="M45.7,36.2L32.1,49.7c-0.2,0.1-0.2,0.4,0,0.5l13.6,13.6c0.2,0.2,0.4,0.2,0.5,0l1.7-1.7L37.3,51.4h29.2 c0.8,0,1.5-0.7,1.5-1.5l0,0c0-0.8-0.7-1.5-1.5-1.5h-29L48,37.9l-1.7-1.7C46.1,36,45.8,36,45.7,36.2L45.7,36.2z" class="arrow" transform="translate(100, 100) rotate(180) "></path>
-                        </svg>
-                        </button> -->
                     </div>
                 </div>
             </div>
@@ -258,7 +266,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -300,7 +308,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -339,7 +347,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -382,7 +390,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -430,7 +438,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -470,7 +478,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -509,7 +517,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -546,7 +554,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -594,7 +602,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -633,7 +641,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -674,7 +682,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -713,7 +721,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -1177,7 +1185,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" autocomplete="off" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -1211,7 +1219,7 @@
                                     <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                                     <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" autocomplete="off" maxlength="18">
                                     <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
                                 </form>
                             </div>
                         </div>
@@ -1387,7 +1395,7 @@
             <div class="reviews-more"><span>Смотреть еще отзывы</span> <i class="i-down"></i></div>
             </div>
         </section>
-        <section class="s-team lozad is__nav-section" id="s-team" data-background-image="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" data-loaded="true" style="background-image: url(&quot;<?php echo get_template_directory_uri(); ?>/images/bg-doctors.jpg&quot;);">
+        <section class="s-team lozad is__nav-section" id="s-team" data-background-image="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" data-loaded="true" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/bg-doctors.jpg);">
             <div class="container">
             <div class="sec-title sec-title--arrows">
                 <div class="h2">
@@ -1536,16 +1544,6 @@
                     <img data-src="<?php echo get_template_directory_uri(); ?>/images/73e6b5529721d1e96c453a3db7507a61.jpg" alt="Сертификат" class="serts-slider__item__sert lozad">
                     </a>
                     </div>
-                <!-- <button class="flickity-button flickity-prev-next-button previous" type="button" disabled="" aria-label="Previous">
-                    <svg class="flickity-button-icon" viewBox="0 0 100 100">
-                        <path d="M45.7,36.2L32.1,49.7c-0.2,0.1-0.2,0.4,0,0.5l13.6,13.6c0.2,0.2,0.4,0.2,0.5,0l1.7-1.7L37.3,51.4h29.2 c0.8,0,1.5-0.7,1.5-1.5l0,0c0-0.8-0.7-1.5-1.5-1.5h-29L48,37.9l-1.7-1.7C46.1,36,45.8,36,45.7,36.2L45.7,36.2z" class="arrow"></path>
-                    </svg>
-                </button>
-                <button class="flickity-button flickity-prev-next-button next" type="button" aria-label="Next">
-                    <svg class="flickity-button-icon" viewBox="0 0 100 100">
-                        <path d="M45.7,36.2L32.1,49.7c-0.2,0.1-0.2,0.4,0,0.5l13.6,13.6c0.2,0.2,0.4,0.2,0.5,0l1.7-1.7L37.3,51.4h29.2 c0.8,0,1.5-0.7,1.5-1.5l0,0c0-0.8-0.7-1.5-1.5-1.5h-29L48,37.9l-1.7-1.7C46.1,36,45.8,36,45.7,36.2L45.7,36.2z" class="arrow" transform="translate(100, 100) rotate(180) "></path>
-                    </svg>
-                </button> -->
             </div>
             </div>
         </section>
@@ -1730,7 +1728,7 @@
                             <div class="grid-12">
                                 <textarea name="user_comment" placeholder="Ваш вопрос" data-label="Вопрос" class="input-text" rows="2"></textarea>
                                 <div class="form-bottom-row">
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a></div>
+                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a></div>
                                     <button type="submit" class="btn">Отправить вопрос</button>
                                 </div>
                             </div>
@@ -1763,7 +1761,7 @@
                         <div class="grid-12">
                             <textarea name="user_comment" placeholder="Описание случая вашего пациента" data-label="Комментарий" class="input-text" rows="2"></textarea>
                             <div class="form-bottom-row">
-                                <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a></div>
+                                <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a></div>
                                 <button type="submit" class="btn">Отправить вопрос</button>
                             </div>
                         </div>
@@ -1773,13 +1771,13 @@
                 <img data-src="<?php echo get_template_directory_uri(); ?>/images/man.png" alt="" class="lozad delegate__man" src="<?php echo get_template_directory_uri(); ?>/images/man.png" data-loaded="true">
             </div>
             </div>
-        </section>
+        </section> -->
         <footer class="s-footer">
             <div class="container">
             <div class="footer">
-                <div class="footer__copy">Все права защищены, 2022 <br>ООО «Дентал Имплант»</div>
+                <div class="footer__copy">Все права защищены, 2022 </div>
                 <div class="footer__policy">
-                    <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" class="blue-link" target="_blank">Политика конфиденциальности</a>
+                    <a href="#" class="blue-link" target="_blank">Политика конфиденциальности</a>
                 </div>
                 <div class="footer__social">
                     <span>Мы в социальных сетях</span>
@@ -1787,10 +1785,10 @@
                         <a href="#"><i class="i-vk"></i></a>
                     </div>
                 </div>
-                <a href="https://penbrain.ru" target="_blank" class="footer__pen">
+                <!-- <a href="https://penbrain.ru" target="_blank" class="footer__pen">
                 <span>Дизайн и разработка с любовью<br>к счастливым улыбкам</span>
                 <img src="<?php echo get_template_directory_uri(); ?>/images/pen.svg" alt="Pen&amp;Brain">
-                </a>
+                </a> -->
             </div>
             </div>
         </footer>
@@ -1801,16 +1799,32 @@
     <div id="modal-order" class="modal modal-order border-block">
         <div class="border-block__content">
             <form class="ajax-form vertical-form form-steps" autocomplete="off">
-            <input type="hidden" value="Новая заявка" name="form_subject">
-            <div class="form-step-1">
-                <div class="form-header">
-                    <div class="form-header__bubble">Напишите, что вас беспокоит, и я вам обязательно помогу</div>
-                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
+                <input type="hidden" value="Новая заявка" name="form_subject">
+                <div class="form-step-1">
+                    <div class="form-header">
+                        <div class="form-header__bubble">Напишите, что вас беспокоит, и я вам обязательно помогу</div>
+                        <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
+                    </div>
+                    <textarea name="user_comment" placeholder="Опишите зубную боль" data-label="Комментарий" class="input-text" rows="5"></textarea>
+                    <button class="btn js-form-step-next">Следующий шаг</button>
                 </div>
-                <textarea name="user_comment" placeholder="Опишите зубную боль" data-label="Комментарий" class="input-text" rows="5"></textarea>
-                <button class="btn js-form-step-next">Следующий шаг</button>
-            </div>
-            <div class="form-step-2">
+                <div class="form-step-2">
+                    <div class="form-header">
+                        <div class="form-header__bubble">Наш администратор перезвонит вам в течение 2 минут.</div>
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man">
+                    </div>
+                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
+                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
+                    <button type="submit" class="btn">Отправить</button>
+                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="modal-callback" class="modal modal-order border-block">
+        <div class="border-block__content">
+            <form class="ajax-form vertical-form" autocomplete="off">
+                <input type="hidden" value="Заказ обратного звонка" name="form_subject">
                 <div class="form-header">
                     <div class="form-header__bubble">Наш администратор перезвонит вам в течение 2 минут.</div>
                     <img src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man">
@@ -1818,23 +1832,7 @@
                 <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                 <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
                 <button type="submit" class="btn">Отправить</button>
-                <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
-            </div>
-            </form>
-        </div>
-    </div>
-    <div id="modal-callback" class="modal modal-order border-block">
-        <div class="border-block__content">
-            <form class="ajax-form vertical-form" autocomplete="off">
-            <input type="hidden" value="Заказ обратного звонка" name="form_subject">
-            <div class="form-header">
-                <div class="form-header__bubble">Наш администратор перезвонит вам в течение 2 минут.</div>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man">
-            </div>
-            <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-            <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-            <button type="submit" class="btn">Отправить</button>
-            <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="/upload/uf/c9d/c9db88e2565f1244bcec2fc31c1dbd4e.pdf" target="_blank">политикой конфиденциальности</a>.</div>
+                <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
             </form>
         </div>
     </div>
@@ -1854,3 +1852,5 @@
 </div>
 
 <?php get_footer(); ?>
+
+

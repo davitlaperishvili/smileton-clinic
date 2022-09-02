@@ -13,7 +13,11 @@
 body.compensate-for-scrollbar {
   overflow: hidden;
 }
-
+section.page{
+    height: max-content;
+    max-height: unset;
+    width: 100%;
+}
 .fancybox-active {
   height: auto;
 }
