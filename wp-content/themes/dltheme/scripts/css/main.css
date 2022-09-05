@@ -3683,6 +3683,7 @@ body.stopped {
           flex-shrink: 0;
   margin-right: 30px;
   width: 230px;
+  height: 350px;
   transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
   transition: transform 0.6s ease, opacity 0.6s ease;
   transition: transform 0.6s ease, opacity 0.6s ease, -webkit-transform 0.6s ease;
@@ -3704,6 +3705,7 @@ body.stopped {
   background: #f0f2f5;
   border-radius: 15px;
   overflow: hidden;
+  height: 100%;
 }
 
 .why-panel__title {
@@ -3719,7 +3721,8 @@ body.stopped {
 .why-panel__img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .flickity-prev-next-button {

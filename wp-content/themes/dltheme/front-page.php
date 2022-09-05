@@ -66,7 +66,7 @@
                 <div class="aside__phone__main">
                     <a href="tel:<?php echo $phone ?>" class="aside__phone__number"><?php echo $phoneVisible ?></a>
                     <?php 
-                        if($$hatsapp){
+                        if($whatsapp){
                             ?>
                                 <a href="<?php echo $whatsapp ?>" class="aside__phone__wa blue-link" target="_blank">Спросить по WhatsApp</a>
                             <?php
@@ -152,616 +152,215 @@
                 }
             ?>
         </section>
-        <!-- <section class="s-why">
-            <div class="container">
-            <div class="row">
-                <div class="grid-4 grid-12_s">
-                    <div class="why-left">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/man.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/man.jpg" alt="man" class="why-left__man lozad" data-loaded="true">
-                        <q class="why-left__q">
-                        Комфорт моих пациентов всегда на первом месте.					</q>
-                        <div class="why-left__hwo">Магомед Алиевич Хасенов<br>главный врач, основатель клиники<br>ООО «Дентал Имплант»</div>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/sign.png" alt="sign" class="why-left__sign">
-                    </div>
-                </div>
-                <div class="grid-8 grid-12_s why-right">
-                    <div class="sec-title sec-title--arrows">
-                        <div class="h2">
-                        Почему выбирают нас					
-                        </div>
-                    </div>
-                    <div class="why-slider slider-top-arrows">
-                    <div class="why-slider__slide">
-                        <div class="why-panel">
-                            <div class="h5 why-panel__title">Диагностика под микроскопом</div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/b81982da9465aa9612c8674e19828e60.jpg" alt="img" class="why-panel__img flickity-lazyloaded">
-                        </div>
-                        </div>
-                        <div class="why-slider__slide">
-                        <div class="why-panel">
-                            <div class="h5 why-panel__title">Гарантия от 3 до 5 лет</div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/b1ed3067482423d02626c834ce843e44.jpg" alt="img" class="why-panel__img flickity-lazyloaded">
-                        </div>
-                        </div>
-                        <div class="why-slider__slide">
-                        <div class="why-panel">
-                            <div class="h5 why-panel__title">Фиксированная стоимость</div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/17893ac512653c39448ba4788623d2aa.jpg" alt="img" class="why-panel__img flickity-lazyloaded">
-                        </div>
-                        </div>
-                        <div class="why-slider__slide">
-                        <div class="why-panel">
-                            <div class="h5 why-panel__title">Помощь в сложных случаях</div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/00b300e7c34eefb3699926ab2e7bd5f4.jpg" alt="img" class="why-panel__img flickity-lazyloaded">
-                        </div>
-                        </div>
-                        <div class="why-slider__slide">
-                        <div class="why-panel">
-                            <div class="h5 why-panel__title">Бесплатная консультация</div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/e05b46e360ff35d49fa353bceff67436.jpg" alt="img" class="why-panel__img flickity-lazyloaded">
-                        </div>
-                        </div>
-                        <div class="why-slider__slide">
-                        <div class="why-panel">
-                            <div class="h5 why-panel__title">Удобная система оплаты</div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/fa1e08573136785c0e7d8fa534e2ab5e.jpg" alt="img" class="why-panel__img flickity-lazyloaded">
-                        </div>
-                        </div>
-                        <div class="why-slider__slide">
-                        <div class="why-panel">
-                            <div class="h5 why-panel__title">Рентген прямо в кресле</div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/613f2fdc4d764769414e28c1c079971e.jpg" alt="img" class="why-panel__img flickity-lazyloaded">
-                        </div>
-                        </div>
-                        <div class="why-slider__slide">
-                        <div class="why-panel">
-                            <div class="h5 why-panel__title">Всегда несколько вариантов решения</div>
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/43a669739da7d4c957861471bf911d99.jpg" alt="img" class="why-panel__img flickity-lazyloaded">
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="s-services is__nav-section" id="s-services">
-            <div class="container">
-            <div class="services-cat">
-                <div class="sec-title sec-title--center">
-                    <div class="h2">Lorem ipsum dolor sit amet.</div>
-                </div>
-                <div class="services-grid">
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-11">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/02e467088e18fa520aec645e72395fba.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/02e467088e18fa520aec645e72395fba.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Виниры</div>
-                        <div class="service-panel__descr">Идеальный вариант, когда вы хотите поменять цвет или форму зубов надолго</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-11">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Виниры</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/721bdfc8893612dbd5133e24a908b63b.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Виниры, люминиры — это ультратонкие керамические пластинки, которые позволяют добиться желаемой формы,цвета и структуры зубов. Они увеличивают прочность зуба на 30% и могут служить вам 20 лет  и более  <br>
-                                    <br>
-                                    Изготовление виниров сегодня не требует излишней обработки зубов как раньше, доктор при необходимости обрабатывает зуб с использованием увеличения (бинокуляров или микроскопа) что позволяет максимально сохранить эмаль зуба.  <br>
-                                    <br>
-                                    Виниры бывают каркасными и более тонкими бескаркасными, их толщина составляет всего 0,1-0.2 мм, это тоньше глазных линз. 								
-                                </div>
+        <?php $why_us = get_field('why_us') ?>
+        <?php 
+            if($why_us){
+                ?>
+                <section class="s-why">
+                    <div class="container">
+                    <div class="row">
+                        <div class="grid-4 grid-12_s">
+                            <div class="why-left">
+                                <?php 
+                                    if($why_us['block_image']){
+                                        ?>
+                                            <img src="<?php echo $why_us['block_image']['url'] ?>" data-src="<?php echo $why_us['block_image']['url'] ?>" alt="man" class="why-left__man lozad" data-loaded="true">
+                                        <?php
+                                    }
+                                ?>
+                                <?php 
+                                    if($why_us['quote']){
+                                        ?>
+                                            <q class="why-left__q"><?php echo $why_us['quote'] ?></q>
+                                        <?php
+                                    }
+                                ?>
+                                <?php 
+                                    if($why_us['quote_author']){
+                                        ?>
+                                            <div class="why-left__hwo"><?php echo $why_us['quote_author'] ?></div>
+                                        <?php
+                                    }
+                                ?>
+                                <?php 
+                                    if($why_us['sign']['url']){
+                                        ?>
+                                            <img src="<?php echo $why_us['sign']['url'] ?>" alt="sign" class="why-left__sign">
+                                        <?php
+                                    }
+                                ?>
                             </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Виниры" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
+                        </div>
+                        <?php 
+                            if($why_us['reasons']){
+                                ?>
+                                    <div class="grid-8 grid-12_s why-right">
+                                        <div class="sec-title sec-title--arrows">
+                                            <div class="h2">
+                                            <?php echo $why_us['block_title'] ?>					
+                                            </div>
+                                        </div>
+                                        <div class="why-slider slider-top-arrows">
+                                            <?php 
+                                                foreach($why_us['reasons'] as $item) {
+                                                    ?>
+                                                        <div class="why-slider__slide">
+                                                            <div class="why-panel">
+                                                                <div class="h5 why-panel__title"><?php echo $item['item_title'] ?></div>
+                                                                <img src="<?php echo $item['item_image']['url'] ?>" alt="img" class="why-panel__img flickity-lazyloaded">
+                                                            </div>
+                                                        </div>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </div>
                                     </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
+                                <?php
+                            }
+                        ?>
                     </div>
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-12">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/d1426f72e77cd7a7d43ef5ea0a02cd1e.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/d1426f72e77cd7a7d43ef5ea0a02cd1e.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
+                    </div>
+                </section>
+                <?php
+            }
+        ?>
+        <?php $services = get_field('services') ?>
+        <?php 
+            if($services){
+                ?>
+                    <section class="s-services is__nav-section" id="s-services">
+                        <div class="container">
+                            <?php 
+                                if($services['services_cat']){
+                                    ?>
+                                        <?php 
+                                            foreach($services['services_cat'] as  $key => $services_cat){
+                                                ?>
+                                                    <div class="services-cat">
+                                                        <div class="sec-title sec-title--center">
+                                                            <div class="h2"><?php echo $services_cat['cat_title'] ?></div>
+                                                        </div>
+                                                        <div class="services-grid">
+                                                            <?php 
+                                                                if($services_cat['cat_services']){
+                                                                    foreach($services_cat['cat_services'] as $serviceKey => $service) {
+                                                                        ?>
+                                                                            <a href="#" class="service-panel fancy-modal" data-src="#modal-service-<?php echo $key; echo $serviceKey ?>">
+                                                                                <span class="service-panel__header">
+                                                                                    <img src="<?php echo $service['service_small_image']['url'] ?>" data-src="<?php echo $service['service_small_image']['url'] ?>" alt="<?php echo $service['service_small_image']['alt'] ?>" class="service-panel__img lozad" data-loaded="true">
+                                                                                </span>
+                                                                                <span class="service-panel__content">
+                                                                                <span class="h4 service-panel__title"><?php echo $service['service_title'] ?></span>
+                                                                                <span class="service-panel__descr"><?php echo $service['short_desc'] ?></span>
+                                                                                    <span class="service-panel__link blue-link">Подробнее</span>
+                                                                                </span>
+                                                                            </a>
+                                                                            <div class="modal modal-service border-block" id="modal-service-<?php echo $key; echo $serviceKey ?>">
+                                                                                <div class="border-block__content">
+                                                                                <div class="modal-service__title"><?php echo $service['service_title'] ?></div>
+                                                                                <div class="modal-service__row">
+                                                                                    <div class="modal-service__content">
+                                                                                        <img data-src="<?php echo $service['service_image']['url'] ?>" alt="<?php echo $service['service_image']['alt'] ?>" class="lozad modal-service__img">
+                                                                                        <div class="user-content">
+                                                                                            <?php echo $service['full_desc'] ?> 								
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="modal-service__order">
+                                                                                        <div class="ajax-form vertical-form">
+                                                                                            <div role="form" class="wpcf7" id="wpcf7-f786-o3" lang="ru-RU" dir="ltr">
+                                                                                                <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+                                                                                                <form action="/#wpcf7-f786-o3" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+                                                                                                    <div style="display: none;">
+                                                                                                        <input type="hidden" name="_wpcf7" value="786">
+                                                                                                        <input type="hidden" name="_wpcf7_version" value="5.6.3">
+                                                                                                        <input type="hidden" name="_wpcf7_locale" value="ru_RU">
+                                                                                                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f786-o3">
+                                                                                                        <input type="hidden" name="_wpcf7_container_post" value="0">
+                                                                                                        <input type="hidden" name="_wpcf7_posted_data_hash" value="">
+                                                                                                    </div>
+                                                                                                    <input type="hidden" name="your-subject" value="Новая заявка" class="wpcf7-form-control wpcf7-hidden">
+                                                                                                    <input type="hidden" name="your-service" value="<?php echo $service['service_title'] ?>" class="wpcf7-form-control wpcf7-hidden">
+                                                                                                    <div class="form-header">
+                                                                                                        <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
+                                                                                                        <p>    <img data-src="http://test.tryhardagency.ru/wp-content/themes/dltheme/images/bubble-man.jpg" alt="man" class="form-header__man lozad" src="http://test.tryhardagency.ru/wp-content/themes/dltheme/images/bubble-man.jpg" data-loaded="true">
+                                                                                                        </p>
+                                                                                                    </div>
+                                                                                                    <p>
+                                                                                                        <span class="wpcf7-form-control-wrap" data-name="your-name">
+                                                                                                            <input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text input-text" aria-invalid="false" placeholder="Ваше имя">
+                                                                                                        </span>
+                                                                                                        <br>
+                                                                                                        <span class="wpcf7-form-control-wrap" data-name="your-tel">
+                                                                                                            <input type="tel" name="your-tel" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel input-text" aria-required="true" aria-invalid="false" placeholder="Телефон*" maxlength="18">
+                                                                                                        </span>
+                                                                                                        <br>
+                                                                                                        <button type="submit" class="btn">Отправить</button>
+                                                                                                    </p>
+                                                                                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
+                                                                                                    <div class="wpcf7-response-output" aria-hidden="true">
+
+                                                                                                    </div>
+                                                                                                </form>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        <?php
+                                                                    }
+                                                                }
+                                                            ?>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                <?php
+                                            }
+                                        ?>
+                                    <?php
+                                }
+                            ?>
                         </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Люминиры</div>
-                        <div class="service-panel__descr">Тончайшие плотно прилегающие пластинки, которые не потребуют обработки зубов</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-12">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Люминиры</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/fca1ad278a832b58f5daccdebd23bde0.jpg" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    <p>
-                                    Люминиры — тончайшие пластинки для коррекции цвета и формы ваших зубов. Материал, из которого они изготавливаются, прочный и не изменит цвет на всем протяжении эксплуатации. Для установки люминиров требуется только снять слепок или цифровой скан — обрабатывать поверхность зубов не придется.
-                                    </p>
-                                    <p>
-                                    На всех этапах работа проводится контроль под высокоточным микроскопом.  Такой подход позволяет нам добиться максимальной точности прилегания люминиров и избежать возникновения кариеса под ними, что напрямую влияет на срок их службы.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Люминиры" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
+                    </section>
+                <?php
+            }
+        ?>
+        <?php $expert = get_field('expert') ?>
+        <?php 
+            if($expert){
+                ?>
+                <section class="s-expert lozad" data-background-image="<?php echo $expert['block_image']['url'] ?>" data-loaded="true" style="background-image: url(<?php echo $expert['block_image']['url'] ?>);">
+                    <div class="container">
+                    <div class="expert">
+                        
+                        <?php echo $expert['block_text'] ?>
+                        <?php 
+                            if($expert['video_url']){
+                                ?>
+                                    <div class="expert__bottom">
+                                        <a href="<?php echo $expert['video_url'] ?>" class="video-block fancy-video">
+                                            <div class="video-block__img">
+                                            <img data-src="<?php echo $expert['video_image']['url'] ?>" alt="<?php echo $expert['video_image']['alt'] ?>" class="lozad" src="<?php echo $expert['video_image']['url'] ?>" data-loaded="true">
+                                            </div>
+                                            <i class="i-play video-block__icon video-block__icon--big video-block__icon--white"></i>
+                                        </a>
+                                        <div class="expert__hwo">
+                                            <div class="expert__hwo__name"><?php echo $expert['expert_name'] ?></div>
+                                            <div class="expert__hwo__descr"><?php echo $expert['expert_status'] ?></div>
+                                        </div>
                                     </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
+                                <?php
+                            }
+                        ?>
                     </div>
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-13">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/97c2b498cbae3e82b184ce9db5fc9492.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/97c2b498cbae3e82b184ce9db5fc9492.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Циркониевые коронки</div>
-                        <div class="service-panel__descr">Выглядят абсолютно естественно и прослужат более 35 лет</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-13">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Циркониевые коронки</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/bb118818706c706a977980c11b3e2567.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Циркониевые коронки полностью имитируют форму и цвет зубов. Срок их службы не ограничен при условии соблюдения рекомендаций врача. <br>
-                                    <br>
-                                    Коронки изготавливаются по методу высокоточного трехмерного моделирования CAD/CAM из диоксида циркония. Это уникальный материал, который отличается особой прочностью, точностью прилегания и подходит для восстановления всех видов зубов. <br>								
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Циркониевые коронки" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
                     </div>
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-14">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/90de9e9be43ce91c5ae60b21a7fed883.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/90de9e9be43ce91c5ae60b21a7fed883.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Отбеливание Zoom 4</div>
-                        <div class="service-panel__descr">Быстрое и бережное отбеливание до 14 тонов за один сеанс</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-14">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Отбеливание Zoom 4</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/1011003073704c63f413b9d9e5342722.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Zoom 4 считается одной из самых эффективных, безопасных и безболезненных процедур для отбеливания зубов. <br>
-                                    <br>
-                                    Перед процедурой врач проводит реминерализующую терапию гелем Relief ACP, чтобы дополнительно защитить и насытить зубную эмаль всеми необходимыми минералами. <br>
-                                    <br>
-                                    Далее на зубы наносится отбеливающий состав с минимальным содержанием перекиси водорода. Он активируется лампой нового поколения с холодным свечением, благодаря которому не происходит перегрев зубов. <br>
-                                    <br>
-                                    Понадобится всего 1 час, чтобы ваша улыбка стала ослепительной. <br>								
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Отбеливание Zoom 4" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="services-cat">
-                <div class="sec-title sec-title--center">
-                    <div class="h2">Никто не угадает, сколько вам лет</div>
-                </div>
-                <div class="services-grid">
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-15">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/74d689e2887c53d07df9278d22ee2f09.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/74d689e2887c53d07df9278d22ee2f09.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Брекеты</div>
-                        <div class="service-panel__descr">Эстетичная система для ровной улыбки, о которой вы мечтали, но не решались попробовать</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-15">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Брекеты</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/f253918e7c0e8048df0398c302f4fc45.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Из-за неправильного прикуса зубной ряд начинает деформироваться. Исправить проблему помогут современные эстетичные брекет-системы. <br>
-                                    <br>
-                                    Они бывают металлическими или керамическими, а также могут по-разному крепиться на зубы — снаружи или изнутри. Какой вариант подойдет именно вам, вы решите вместе с врачом. <br>
-                                    <br>
-                                    Перед установкой стоматолог-ортодонт выполнит все необходимые исследования и смоделирует правильный прикус, который будет учитывать анатомические особенности вашего челюстного сустава и мышц лица. <br>								
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Брекеты" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-16">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/13bf23b2ea16c68e7c932a81205ce84a.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/13bf23b2ea16c68e7c932a81205ce84a.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Лечение под микроскопом</div>
-                        <div class="service-panel__descr">Безболезненная помощь вашим зубам и деснам</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-16">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Лечение под микроскопом</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/67d137c6acf50e32f9bd13a1917908dd.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Кариес может не только разрушить зуб, но и привести к тяжелым заболеваниям десен и воспалению нерва. Лечение зубов под микроскопом Carl Zeiss —  современный способ сохранить максимальное количество здоровых тканей, увидеть сложную анатомию корневых каналов зуба и обеспечить пациенту качественное лечение. <br>
-                                    <br>
-                                    Современные биоинертные материалы, из которых будет изготовлена пломба, помогут сохранить зуб здоровым и избежать повторного воспаления.  <br>
-                                    <br>								
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Лечение под микроскопом" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-17">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/9e98cbc1a21c49840ff9a068bdb3bd4a.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/9e98cbc1a21c49840ff9a068bdb3bd4a.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Профессиональная гигиена</div>
-                        <div class="service-panel__descr">Сияющая чистота вашей улыбки</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-17">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Профессиональная гигиена</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/15ced85629bd91f2c7f91e19a463222e.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Ежедневной гигиены бывает недостаточно, чтобы сохранить зубы чистыми и здоровыми. Комплексная чистка способна избавить зубы и межзубные пространства от налета и зубного камня даже в труднодоступных местах. Вместе с отложениями уйдут и проблемы, связанные с потемнением эмали или неприятным запахом изо рта.<br>
-                                    <br>
-                                    Чистка — безопасная и безболезненная процедура, которую мы советуем проводить каждые полгода.<br>								
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Профессиональная гигиена" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-18">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/b69438a4201531d91fd9cf12abd54431.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/b69438a4201531d91fd9cf12abd54431.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Реставрация зубной эмали</div>
-                        <div class="service-panel__descr">Идеальная поверхность зубов</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-18">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Реставрация зубной эмали</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/62bc470c4d1a11b695915e6d8d4e050a.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Зубы считаются одним из самых прочных органов человека, но из-за травм или повышенного давления даже они могут пострадать. Если площадь разрушения значительна, мы предлагаем нарастить зубную эмаль наногибридным материалом или керамической накладкой, цвет и структуру которых будет невозможно отличить от естественной эмали.								
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Реставрация зубной эмали" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="services-cat">
-                <div class="sec-title sec-title--center">
-                    <div class="h2">Возрождение вашей улыбки</div>
-                </div>
-                <div class="services-grid">
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-19">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/65f5e911b2f9786abfd029c3e1461efd.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/65f5e911b2f9786abfd029c3e1461efd.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Рецессия десны</div>
-                        <div class="service-panel__descr">Остановим и повернем вспять процесс, вызывающий убыль десны</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-19">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Рецессия десны</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/e093d07f50c8ef72991567a6032a3453.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Рецессия — это убыль десны, к которой приводят грубая механическая чистка, кариес, отсутствие жевательных зубов и некорректное лечение. Она может оголить шейку зуба и вызвать чувствительность.<br>
-                                    <br>
-                                    Если проблему не решать, появляется подвижность зуба, которая со временем приведет к его удалению. <br>
-                                    <br>
-                                    Сохранению здоровья ваших десен поможет локальная пластика десны. Лечение рецессии проводится под местной анестезией в один прием. <br>								
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Рецессия десны" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-20">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/6fe3fd12a69e5fd1497d924d1a391d18.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/6fe3fd12a69e5fd1497d924d1a391d18.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Нейромышечная стоматология</div>
-                        <div class="service-panel__descr">Избавим от боли в голове и мышцах</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-20">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Нейромышечная стоматология</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/ad3723470164a52ff0358aec805b7e47.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Неточно поставленная пломба может привести к смещению челюсти и возникновению дисбаланса жевательных мышц. Без должного лечения разовьется гипертонус, который будет отдавать болью в голову, шею, плечи и спину. <br>
-                                    <br>
-                                    Специалисты нашего центра помогут определить состояние зубочелюстной системы на специальном оборудовании, которое даст полную информацию о вашем височно-нижнечелюстном суставе и позволит составить план лечения уже в день обращения. <br>								
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Нейромышечная стоматология" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-21">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/6df95fc983de582b1dd5ee78e7b39391.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/6df95fc983de582b1dd5ee78e7b39391.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Комплексная имплантация</div>
-                        <div class="service-panel__descr">Никто не поймет, что ваша улыбка выглядит так благодаря нам</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-21">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Комплексная имплантация</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/37fcddb71f1237990a0a6e242cf2f7e2.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Современные методы имплантации позволяют восстановить улыбку при полном или частичном отсутствии зубов всего за несколько дней. <br>
-                                    <br>
-                                    Для этого врачи нашей клиники планируют установку имплантов с помощью компьютерной томографии и 3D-моделирования.<br>
-                                    <br>
-                                    Специальная программа помогает нам с высокой точностью проработать все этапы от установки имплантов до фиксации зубов и провести реабилитацию с максимальным комфортом.								
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Комплексная имплантация" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <a href="#" class="service-panel fancy-modal" data-src="#modal-service-22">
-                        <div class="service-panel__header">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/042c0e6c34f01e9268c8ad724c09c837.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/042c0e6c34f01e9268c8ad724c09c837.jpg" alt="service" class="service-panel__img lozad" data-loaded="true">
-                        </div>
-                        <div class="service-panel__content">
-                        <div class="h4 service-panel__title">Костная пластика</div>
-                        <div class="service-panel__descr">Беремся и решаем проблемы с костью, с которыми вам не смогли помочь в другой клинике</div>
-                        <span class="service-panel__link blue-link">Подробнее</span>
-                        </div>
-                    </a>
-                    <div class="modal modal-service border-block" id="modal-service-22">
-                        <div class="border-block__content">
-                        <div class="modal-service__title">Костная пластика</div>
-                        <div class="modal-service__row">
-                            <div class="modal-service__content">
-                                <img data-src="<?php echo get_template_directory_uri(); ?>/images/c21771aed8cd880521a115c54f24ec35.png" alt="1" class="lozad modal-service__img">
-                                <div class="user-content">
-                                    Часто потеря зубов или долгое ношение зубных протезов приводят к  дефициту костной ткани. Важно восстановить костную ткань, чтобы предотвратить полную потерю зубов. <br>
-                                    <br>
-                                    Для этого мы прибегаем к костной пластике, увеличивающей объем кости, чтобы затем установить имплант. Современные технологии и мировой опыт наращивания костной ткани делают эту процедуру столь же доступной и предсказуемой, как лечение обычного кариеса.<br>								
-                                </div>
-                            </div>
-                            <div class="modal-service__order">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Новая заявка" name="form_subject">
-                                    <input type="hidden" value="Костная пластика" name="service" data-label="Услуга">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
-                                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man lozad">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="s-expert lozad" data-background-image="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" data-loaded="true" style="background-image: url(&quot;<?php echo get_template_directory_uri(); ?>/images/bg.jpg&quot;);">
-            <div class="container">
-            <div class="expert">
-                <div class="expert__lead">
-                    <p>Мне 55 лет, с 1992 года занимаюсь бизнесом.</p>
-                    <p>Я здоровый человек, не бываю обычно у врачей — если только за справкой на права или лечить зубы. И зубы со временем износились.</p>
-                </div>
-                <div class="expert__main">
-                    <p>Нужно уже было срочно что-то сделать. Сходил в несколько поликлиник, мне не понравились предложения сделать за несколько лет и много операций. Я знаю, что долго — не обязательно хорошо.</p>
-                    <p>Старший сын Илья Кусакин порекомендовал обратиться к Магомеду. Сделали снимки и одну операцию под местной анестезией, через неделю вставили имплантаты на всю нижнюю челюсть и сделали удобный временный протез на верхнюю. За неделю и сравнительно небольшую сумму денег я решил проблему, которая мешала мне нормально жить несколько лет.</p>
-                    <p>Я публичный человек и часто выступаю. Иногда приходилось есть аккуратно одной стороной рта, чтобы оставшиеся зубы случайно не выпали. Мясо приходилось резать на очень мелкие кусочки. Сейчас я, конечно, забыл об этих неудобствах. Новые зубы доставляют удовольствие при общении и еде и больше не болят.</p>
-                </div>
-                <div class="expert__mark">
-                    Хочется сказать большое спасибо профессионализму Магомеда. Это большая редкость — встретить настоящего мастера, владеющего самыми современными и быстрыми технологиями. Я рад, что мне повезло.			
-                </div>
-                <div class="expert__bottom">
-                    <a href="#" class="video-block">
-                        <div class="video-block__img">
-                        <img data-src="<?php echo get_template_directory_uri(); ?>/images/video.jpg" alt="1" class="lozad" src="<?php echo get_template_directory_uri(); ?>/images/video.jpg" data-loaded="true">
-                        </div>
-                        <i class="i-play video-block__icon video-block__icon--big video-block__icon--white"></i>
-                    </a>
-                    <div class="expert__hwo">
-                        <div class="expert__hwo__name">Владимир Кусакин</div>
-                        <div class="expert__hwo__descr">Эксперт по бизнесу, коуч, консультант</div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="s-cases is__nav-section" id="s-cases">
+                </section>
+                <?php
+            }
+        ?>
+        
+
+        <!-- <section class="s-cases is__nav-section" id="s-cases">
             <div class="container">
             <div class="sec-title sec-title--arrows">
                 <div class="h2">
@@ -1852,5 +1451,3 @@
 </div>
 
 <?php get_footer(); ?>
-
-
