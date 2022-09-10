@@ -359,641 +359,315 @@
             }
         ?>
         
+        <?php $cases = get_field('cases') ?>
+        <?php 
+            if($cases) {
+                ?>
+                    <section class="s-cases is__nav-section" id="s-cases">
+                        <div class="container">
+                            <div class="sec-title sec-title--arrows">
+                                <div class="h2">
+                                    <?php echo $cases['block_title'] ?>			
+                                </div>
+                            </div>
+                            <div class="cases-thumbs slider-top-arrows ">
+                                <?php 
+                                    foreach ( $cases['cases_list'] as $key => $case){
+                                        ?>
+                                            <div class="cases-thumbs__slide">
+                                                <div class="case-thumb <?php echo  $key == 0 ? 'active' : '' ?>">
+                                                    <img data-toggle-class="visible" data-src="<?php echo $case['case_tab']['image']['url'] ?>" alt="<?php echo $case['case_tab']['image']['alt'] ?>" class="lozad visible" src="<?php echo $case['case_tab']['image']['url'] ?>" data-loaded="true">
+                                                    <span><?php echo $case['case_tab']['name'] ?></span>
+                                                </div>
+                                            </div>
+                                        <?php
+                                    }
+                                ?>
+                            </div>
+                            <div class="cases">
+                                <?php 
+                                    foreach( $cases['cases_list'] as $key => $case ){
+                                        ?>
+                                            <div class="case row <?php echo $key == 0 ?  'active' : '' ?>">
+                                                <div class="grid-6 grid-12_m">
+                                                    <div class="twentytwenty-wrapper twentytwenty-horizontal">
+                                                        <div class="case__ba twentytwenty-container" style="height: 500px;">
+                                                            <img src="<?php echo $case['case_content']['image_before']['url'] ?>" data-src="<?php echo $case['case_content']['image_before']['url'] ?>" alt="до" class="lozad twentytwenty-before" style="clip: rect(0px, 367.5px, 500px, 0px);" data-loaded="true">
+                                                            <img src="<?php echo $case['case_content']['image_after']['url'] ?>" data-src="<?php echo $case['case_content']['image_after']['url'] ?>" alt="псоле" class="lozad twentytwenty-after" style="clip: rect(0px, 735px, 500px, 367.5px);" data-loaded="true">
+                                                            <div class="twentytwenty-handle" style="left: 367.5px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="grid-6 grid-12_m">
+                                                    <div class="case__info">
+                                                    <div class="case__title"><?php echo $case['case_content']['content_title'] ?></div>
+                                                    <div class="user-content case__descr">
+                                                        <?php echo $case['case_content']['content_text'] ?>				
+                                                    </div>
+                                                    <div class="case__bottom">
+                                                        <div class="case__process">
+                                                            <div class="h4">Процесс работы</div>
+                                                            <div class="case__process__wall">
+                                                                <?php 
+                                                                    foreach($case['case_content']['work_proccess'] as $item) {
+                                                                        ?>
+                                                                        <a href="<?php echo $item['step_image']['url'] ?>" class="fancy" data-fancybox="124">
+                                                                            <img src="<?php echo $item['step_image']['url'] ?>" data-src="<?php echo $item['step_image']['url'] ?>" alt="<?php echo $item['step_image']['alt'] ?>" class="lozad" data-loaded="true">
+                                                                        </a>
+                                                                        <?php
+                                                                    }
+                                                                ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    </section>
+                <?php
+            }
+        ?>
+        <?php $promo = get_field('promo') ?>
+        <?php 
+            if($promo) {
+                ?>
+                    <section class="s-promo is__nav-section" id="s-promo">
+                        <div class="container">
+                        <div class="sec-title sec-title--center">
+                            <div class="h2">
+                                <?php echo $promo['block_title'] ?>			
+                            </div>
+                        </div>
+                        <div class="border-block promo-block">
+                            <div class="border-block__content">
+                                <div class="promo-slider slider-arrows-gold">
+                                    <?php 
+                                        foreach($promo['promo_list'] as $key => $promoItem) {
+                                            ?>
+                                                <div class="promo-slider__slide ">
+                                                    <div class="promo">
+                                                        <div class="promo__img">
+                                                            <img src="<?php echo $promoItem['promo_image']['url'] ?>" data-src="<?php echo $promoItem['promo_image']['url'] ?>" data-toggle-class="visible" alt="<?php echo $promoItem['promo_image']['alt'] ?>" class="lozad visible" data-loaded="true">
+                                                        </div>
+                                                        <div class="promo__content">
+                                                            <div class="promo__title"><?php echo $promoItem['promo_title'] ?></div>
+                                                            <div class="promo__list-title">В цену входят:</div>
+                                                            <ul class="list-checked promo__list">
+                                                                <?php 
+                                                                    foreach( $promoItem['promo_text'] as $item){
+                                                                        ?>
+                                                                            <li><?php echo $item['mark'] ?></li>
+                                                                        <?php
+                                                                    }
+                                                                ?>
+                                                            </ul>
+                                                            <a href="#" class="btn fancy-modal" data-src="#modal-promo-<?php echo $key ?>">Участвовать в акции</a>
+                                                        </div>
+                                                    </div>
+                                                    <div id="modal-promo-<?php echo $key ?>" class="modal modal-order border-block">
+                                                        <div class="border-block__content">
+                                                            <div class="ajax-form vertical-form">
+                                                                <div role="form" class="wpcf7" id="wpcf7-f786-o3" lang="ru-RU" dir="ltr">
+                                                                    <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+                                                                    <form action="/#wpcf7-f786-o3" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+                                                                        <div style="display: none;">
+                                                                            <input type="hidden" name="_wpcf7" value="786">
+                                                                            <input type="hidden" name="_wpcf7_version" value="5.6.3">
+                                                                            <input type="hidden" name="_wpcf7_locale" value="ru_RU">
+                                                                            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f786-o3">
+                                                                            <input type="hidden" name="_wpcf7_container_post" value="0">
+                                                                            <input type="hidden" name="_wpcf7_posted_data_hash" value="">
+                                                                        </div>
+                                                                        <input type="hidden" name="your-subject" value="Участие в акции" class="wpcf7-form-control wpcf7-hidden">
+                                                                        <input type="hidden" name="your-service" value="<?php echo $promoItem['promo_title'] ?>" class="wpcf7-form-control wpcf7-hidden">
+                                                                        <div class="form-header">
+                                                                            <div class="form-header__bubble">Хотите записаться на прием? Оставьте заявку, и наш администратор свяжется с вами в течение 2 минут</div>
+                                                                            <p>    <img data-src="http://test.tryhardagency.ru/wp-content/themes/dltheme/images/bubble-man.jpg" alt="man" class="form-header__man lozad" src="http://test.tryhardagency.ru/wp-content/themes/dltheme/images/bubble-man.jpg" data-loaded="true">
+                                                                            </p>
+                                                                        </div>
+                                                                        <p>
+                                                                            <span class="wpcf7-form-control-wrap" data-name="your-name">
+                                                                                <input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text input-text" aria-invalid="false" placeholder="Ваше имя">
+                                                                            </span>
+                                                                            <br>
+                                                                            <span class="wpcf7-form-control-wrap" data-name="your-tel">
+                                                                                <input type="tel" name="your-tel" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel input-text" aria-required="true" aria-invalid="false" placeholder="Телефон*" maxlength="18">
+                                                                            </span>
+                                                                            <br>
+                                                                            <button type="submit" class="btn">Отправить</button>
+                                                                        </p>
+                                                                        <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
+                                                                        <div class="wpcf7-response-output" aria-hidden="true">
+                        
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </section>
+                <?php
+            }
+        ?>
 
-        <!-- <section class="s-cases is__nav-section" id="s-cases">
-            <div class="container">
-            <div class="sec-title sec-title--arrows">
-                <div class="h2">
-                    Lorem ipsum dolor sit amet.			
-                </div>
-            </div>
-            <div class="cases-thumbs slider-top-arrows ">
-                <div class="cases-thumbs__slide">
-                    <div class="case-thumb active">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/de025f475a2e58395e1cdca784a52ba1.JPG" alt="1" class="lozad visible" src="<?php echo get_template_directory_uri(); ?>/images/de025f475a2e58395e1cdca784a52ba1.JPG" data-loaded="true">
-                        <span>Королева Елена</span>
-                    </div>
-                    </div>
-                    <div class="cases-thumbs__slide">
-                    <div class="case-thumb ">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/e2a030551726a2c1d4cde79eec714be5.JPG" alt="1" class="lozad visible" src="<?php echo get_template_directory_uri(); ?>/images/e2a030551726a2c1d4cde79eec714be5.JPG" data-loaded="true">
-                        <span>Островская Евгения</span>
-                    </div>
-                    </div>
-                    <div class="cases-thumbs__slide">
-                    <div class="case-thumb ">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/d395209337c694452e6de303fbbcb9a4.jpg" alt="1" class="lozad visible" src="<?php echo get_template_directory_uri(); ?>/images/d395209337c694452e6de303fbbcb9a4.jpg" data-loaded="true">
-                        <span>Владимир Кусакин</span>
-                    </div>
-                    </div>
-                    <div class="cases-thumbs__slide ">
-                    <div class="case-thumb ">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/2ced88120bcd8301db49b305c7553cfb.jpg" alt="1" class="lozad visible" src="<?php echo get_template_directory_uri(); ?>/images/2ced88120bcd8301db49b305c7553cfb.jpg" data-loaded="true">
-                        <span>Смелов Артем</span>
-                    </div>
-                    </div>
-                    <div class="cases-thumbs__slide">
-                    <div class="case-thumb ">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/f0e6fd06f4c5db3a9e58e70e472c50c2.jpg" alt="1" class="lozad visible" src="<?php echo get_template_directory_uri(); ?>/images/f0e6fd06f4c5db3a9e58e70e472c50c2.jpg" data-loaded="true">
-                        <span>Ольга Максимова</span>
-                    </div>
-                    </div>
-                    <div class="cases-thumbs__slide">
-                    <div class="case-thumb ">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/80_80_240cd750bba9870f18aada2478b24840a/0d0cf3f8acc695de28b7bd12e0158a34.JPG" alt="1" class="lozad">
-                        <span>Митрош Гера</span>
-                    </div>
-                    </div>
-            </div>
-            <div class="cases">
-                <div class="case row active">
-                    <div class="grid-6 grid-12_m">
-                        <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                        <div class="case__ba twentytwenty-container" style="height: 500px;">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/e68bdcea71d4f09f1e5e2606f9966559.JPG" data-src="<?php echo get_template_directory_uri(); ?>/images/e68bdcea71d4f09f1e5e2606f9966559.JPG" alt="до" class="lozad twentytwenty-before" style="clip: rect(0px, 367.5px, 500px, 0px);" data-loaded="true">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/5833d3dd2fd4c193395913992dbd12c8.JPG" data-src="<?php echo get_template_directory_uri(); ?>/images/5833d3dd2fd4c193395913992dbd12c8.JPG" alt="псоле" class="lozad twentytwenty-after" style="clip: rect(0px, 735px, 500px, 367.5px);" data-loaded="true">
-                            <div class="twentytwenty-handle" style="left: 367.5px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="grid-6 grid-12_m">
-                        <div class="case__info">
-                        <div class="case__title">Приобретение душевной молодости и уверенности через виниры</div>
-                        <div class="user-content case__descr">
-                            1. Профессиональная гигиена полости рта<br>
-                            2. Лечение зубов и замена старых пломб.<br>
-                            3. 3D диагностика<br>
-                            4. Wax app (восковое моделирование)<br>
-                            5. 28 керамический ультратонких виниров					
-                        </div>
-                        <div class="case__bottom">
-                            <div class="case__process">
-                                <div class="h4">Процесс работы</div>
-                                <div class="case__process__wall">
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/8b72be17c839951f02f7b6f9e52c8079.JPG" class="fancy" data-fancybox="124">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/8b72be17c839951f02f7b6f9e52c8079.JPG" data-src="<?php echo get_template_directory_uri(); ?>/images/8b72be17c839951f02f7b6f9e52c8079.JPG" alt="процесс" class="lozad" data-loaded="true">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/c91478fa5fb489b3ac67d6573551fff0.JPG" class="fancy" data-fancybox="124">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/c91478fa5fb489b3ac67d6573551fff0.JPG" data-src="<?php echo get_template_directory_uri(); ?>/images/c91478fa5fb489b3ac67d6573551fff0.JPG" alt="процесс" class="lozad" data-loaded="true">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/481d3bae6b1a115ce416e7668863b98c.JPG" class="fancy" data-fancybox="124">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/481d3bae6b1a115ce416e7668863b98c.JPG" data-src="<?php echo get_template_directory_uri(); ?>/images/481d3bae6b1a115ce416e7668863b98c.JPG" alt="процесс" class="lozad" data-loaded="true">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/dcad099319e3f1f9872e2ab47ae673ba.JPG" class="fancy" data-fancybox="124">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/dcad099319e3f1f9872e2ab47ae673ba.JPG" data-src="<?php echo get_template_directory_uri(); ?>/images/dcad099319e3f1f9872e2ab47ae673ba.JPG" alt="процесс" class="lozad" data-loaded="true">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/486e8a4f0126b35e83929c4ada4296b6.JPG" class="fancy" data-fancybox="124">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/486e8a4f0126b35e83929c4ada4296b6.JPG" data-src="<?php echo get_template_directory_uri(); ?>/images/486e8a4f0126b35e83929c4ada4296b6.JPG" alt="процесс" class="lozad" data-loaded="true">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/b02c62eb462b751f26297a3ec4db8ce1.JPG" class="fancy" data-fancybox="124">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/b02c62eb462b751f26297a3ec4db8ce1.JPG" data-src="<?php echo get_template_directory_uri(); ?>/images/b02c62eb462b751f26297a3ec4db8ce1.JPG" alt="процесс" class="lozad" data-loaded="true">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/a294ca9cc9f18ce7734a035fe7e0c826.JPG" class="fancy" data-fancybox="124">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/a294ca9cc9f18ce7734a035fe7e0c826.JPG" data-src="<?php echo get_template_directory_uri(); ?>/images/a294ca9cc9f18ce7734a035fe7e0c826.JPG" alt="процесс" class="lozad" data-loaded="true">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/e9949278255490caaf138dec93e9f261.JPG" class="fancy" data-fancybox="124">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/e9949278255490caaf138dec93e9f261.JPG" data-src="<?php echo get_template_directory_uri(); ?>/images/e9949278255490caaf138dec93e9f261.JPG" alt="процесс" class="lozad" data-loaded="true">
-                                    </a>
+        <?php 
+            $reviews = get_field('reviews');
+            $showNumber = 8;
+        ?>
+        <?php 
+            if($reviews) {
+                ?>
+                    <section class="s-reviews is__nav-section" id="s-reviews">
+                        <div class="container">
+                            <div class="sec-title sec-title--center">
+                                <div class="h2">
+                                    <?php echo $reviews['block_title'] ?>		
                                 </div>
                             </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case row ">
-                    <div class="grid-6 grid-12_m">
-                        <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                        <div class="case__ba twentytwenty-container" style="height: 0px;">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/ba_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/735_500_240cd750bba9870f18aada2478b24840a/94b7112dcf87bd5399ed30c672a25930.JPG" alt="до" class="lozad twentytwenty-before" style="clip: rect(0px, 0px, 0px, 0px);">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/ba_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/735_500_240cd750bba9870f18aada2478b24840a/4df6c0c117dcb4ca5d3fcd3e5081fea1.JPG" alt="псоле" class="lozad twentytwenty-after" style="clip: rect(0px, 0px, 0px, 0px);">
-                            <div class="twentytwenty-handle" style="left: 0px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="grid-6 grid-12_m">
-                        <div class="case__info">
-                        <div class="case__title">Виниры как машина времени </div>
-                        <div class="user-content case__descr">
-                            1. Профессиональная гигиена полости рта<br>
-                            2. Санация полости рта<br>
-                            3. Пластика мягких тканей<br>
-                            4. 3D сканирование и виртуальное планирование будущей улыбки<br>
-                            5. Изготовление 2 индивидуальных циркониевых абатмента<br>
-                            6. 28 керамических виниров 					
-                        </div>
-                        <div class="case__bottom">
-                            <div class="case__process">
-                                <div class="h4">Процесс работы</div>
-                                <div class="case__process__wall">
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/01dd580da9778e3d80c3809a5b0bef10.JPG" class="fancy" data-fancybox="125">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/01dd580da9778e3d80c3809a5b0bef10.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/c20e07857d8c772ebac957bd1a2a310d.JPG" class="fancy" data-fancybox="125">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/c20e07857d8c772ebac957bd1a2a310d.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/a25a7a2411c1b1ee6a2a8e720f2f9128.JPG" class="fancy" data-fancybox="125">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/a25a7a2411c1b1ee6a2a8e720f2f9128.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/fbd4b8231594a122977e14c6c312d97e.JPG" class="fancy" data-fancybox="125">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/fbd4b8231594a122977e14c6c312d97e.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/f4e76df453c67bd3ef4ad2fc34d08789.JPG" class="fancy" data-fancybox="125">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/f4e76df453c67bd3ef4ad2fc34d08789.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/9d385a91133ba53f4520cce4b0299518.JPG" class="fancy" data-fancybox="125">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/9d385a91133ba53f4520cce4b0299518.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/05597e51f923721b2afd38a7b616a2a4.JPG" class="fancy" data-fancybox="125">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/05597e51f923721b2afd38a7b616a2a4.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/39e0f650e1b52511993baebe2c15e152.JPG" class="fancy" data-fancybox="125">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/39e0f650e1b52511993baebe2c15e152.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/4426a264d6df96e9f5ad56ea2a64c86c.JPG" class="fancy" data-fancybox="125">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/4426a264d6df96e9f5ad56ea2a64c86c.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/31b4eea1de054de965d10243b5b293b6.JPG" class="fancy" data-fancybox="125">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/31b4eea1de054de965d10243b5b293b6.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                </div>
+                            <div class="row">
+                                <?php 
+                                    foreach($reviews['reviews_list'] as $key => $review) {
+                                        if( $key + 1 <= $showNumber){
+                                            if($review['review_type'] == "image"){
+                                                ?>
+                                                    <div class="grid-3 grid-6_m">
+                                                        <a href="<?php echo $review['image']['url'] ?>" class="review review__insta fancy">
+                                                            <div class="review__header"><?php echo $review['author_name'] ?></div>
+                                                            <div class="review__photo">
+                                                            <img src="<?php echo $review['image']['url'] ?>" data-src="<?php echo $review['image']['url'] ?>" alt="<?php echo $review['author_name'] ?>" class="lozad" data-loaded="true">
+                                                            </div>
+                                                            <span class="review__link blue-link">Подробнее</span>
+                                                        </a>
+                                                    </div>
+                                                <?php
+                                            }else if ($review['review_type'] == "video"){
+                                                ?> 
+                                                    <div class="grid-3 grid-6_m">
+                                                        <a href="<?php echo $review['video']['video_url'] ?>" class="review review__insta fancy-video">
+                                                            <div class="review__header"><?php echo $review['author_name'] ?> </div>
+                                                            <div class="video-block">
+                                                            <div class="video-block__img">
+                                                                <img src="<?php echo $review['video']['video_image']['url'] ?>" data-src="<?php echo $review['video']['video_image']['url'] ?>" alt="<?php echo $review['author_name'] ?> " class="lozad" data-loaded="true">
+                                                            </div>
+                                                            <i class="i-play video-block__icon video-block__icon--bottom"></i>
+                                                            </div>
+                                                            <span class="review__video-title"></span>
+                                                            <span class="review__link blue-link">Подробнее</span>
+                                                        </a>
+                                                    </div>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                    <div class="grid-3 grid-6_m">
+                                                        <a href="#" class="review review__insta fancy-modal" data-src="#modal-review-<?php echo $key ?>">
+                                                        <div class="review__header"><?php echo $review['author_name'] ?></div>
+                                                        <div class="review__text">
+                                                            <?php echo $review['text'] ?>								
+                                                        </div>
+                                                        <span class="review__link blue-link">Подробнее</span>
+                                                        </a>
+                                                        <div class="modal modal--review" id="modal-review-<?php echo $key ?>">
+                                                        <div class="review__header"><?php echo $review['author_name'] ?></div>
+                                                            <div class="review__text">
+                                                                <?php echo $review['text'] ?>								
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php
+                                            }
+                                        }
+                                    }
+                                ?> 
                             </div>
+                            <?php 
+                                if(count($reviews['reviews_list']) > 8 ) {
+                                    ?>
+                                        <div class="reviews-hidden">
+                                            <div class="row">
+                                                <?php 
+                                                    foreach($reviews['reviews_list'] as $key => $review) {
+                                                        if( $key + 1 > $showNumber){
+                                                            if($review['review_type'] == "image"){
+                                                                ?>
+                                                                    <div class="grid-3 grid-6_m">
+                                                                        <a href="<?php echo $review['image']['url'] ?>" class="review review__insta fancy">
+                                                                            <div class="review__header"><?php echo $review['author_name'] ?></div>
+                                                                            <div class="review__photo">
+                                                                            <img src="<?php echo $review['image']['url'] ?>" data-src="<?php echo $review['image']['url'] ?>" alt="<?php echo $review['author_name'] ?>" class="lozad" data-loaded="true">
+                                                                            </div>
+                                                                            <span class="review__link blue-link">Подробнее</span>
+                                                                        </a>
+                                                                    </div>
+                                                                <?php
+                                                            }else if ($review['review_type'] == "video"){
+                                                                ?> 
+                                                                    <div class="grid-3 grid-6_m">
+                                                                        <a href="<?php echo $review['video']['video_url'] ?>" class="review review__insta fancy-video">
+                                                                            <div class="review__header"><?php echo $review['author_name'] ?> </div>
+                                                                            <div class="video-block">
+                                                                            <div class="video-block__img">
+                                                                                <img src="<?php echo $review['video']['video_image']['url'] ?>" data-src="<?php echo $review['video']['video_image']['url'] ?>" alt="<?php echo $review['author_name'] ?> " class="lozad" data-loaded="true">
+                                                                            </div>
+                                                                            <i class="i-play video-block__icon video-block__icon--bottom"></i>
+                                                                            </div>
+                                                                            <span class="review__video-title"></span>
+                                                                            <span class="review__link blue-link">Подробнее</span>
+                                                                        </a>
+                                                                    </div>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                    <div class="grid-3 grid-6_m">
+                                                                        <a href="#" class="review review__insta fancy-modal" data-src="#modal-review-<?php echo $key ?>">
+                                                                        <div class="review__header"><?php echo $review['author_name'] ?></div>
+                                                                        <div class="review__text">
+                                                                            <?php echo $review['text'] ?>								
+                                                                        </div>
+                                                                        <span class="review__link blue-link">Подробнее</span>
+                                                                        </a>
+                                                                        <div class="modal modal--review" id="modal-review-<?php echo $key ?>">
+                                                                        <div class="review__header"><?php echo $review['author_name'] ?></div>
+                                                                            <div class="review__text">
+                                                                                <?php echo $review['text'] ?>								
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php
+                                                            }
+                                                        }
+                                                    }
+                                                ?> 
+                                            </div>
+                                        </div>
+                                    <?php
+                                }
+                            ?>
+                            <?php 
+                                if(count($reviews['reviews_list']) > 8 ) { 
+                                    ?>
+                                        <div class="reviews-more"><span>Смотреть еще отзывы</span> <i class="i-down"></i></div>
+                                    <?php
+                                }
+                            ?>
                         </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case row ">
-                    <div class="grid-6 grid-12_m">
-                        <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                        <div class="case__ba twentytwenty-container" style="height: 0px;">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/ba_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/47feb0e4dbf6bb8949969365b8ee636b.jpg" alt="до" class="lozad twentytwenty-before" style="clip: rect(0px, 0px, 0px, 0px);">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/ba_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/61762c843ddff5505b74ffbc68a357b4.jpg" alt="псоле" class="lozad twentytwenty-after" style="clip: rect(0px, 0px, 0px, 0px);">
-                            <div class="twentytwenty-handle" style="left: 0px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="grid-6 grid-12_m">
-                        <div class="case__info">
-                        <div class="case__title">Новая жизнь за 10 дней</div>
-                        <div class="case__services">
-                            <span>Одномоментная Имплантация </span>
-                        </div>
-                        <div class="user-content case__descr">
-                            1. Профессиональная гигиена полости рта <br>
-                            2. Виртуальное (3D) планирование установки 6 имплантатов Straumann (Штрауман) <br>
-                            3. Удаление 18 зубом за 20 минут<br>
-                            4. Проведена имплантация 6 имплантов одномоментно на нижней челюсти<br>
-                            5. Костная пластика   <br>
-                            6. Мягкотканная пластика<br>
-                            7. Коронки на имплантах через 10 дней 					
-                        </div>
-                        <div class="case__bottom">
-                            <div class="case__process">
-                                <div class="h4">Процесс работы</div>
-                                <div class="case__process__wall">
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/137a5e9cf4085331385e9250870e2bcc.jpg" class="fancy" data-fancybox="43">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/137a5e9cf4085331385e9250870e2bcc.jpg" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/6a86d7cddf01f3fbf55057c2c405101a.JPG" class="fancy" data-fancybox="43">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/6a86d7cddf01f3fbf55057c2c405101a.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/09c6d804fffae5bfa65b0795cbae6d21.jpg" class="fancy" data-fancybox="43">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/09c6d804fffae5bfa65b0795cbae6d21.jpg" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/e52bd1917965f4571a262b84bb355024.jpg" class="fancy" data-fancybox="43">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/e52bd1917965f4571a262b84bb355024.jpg" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/05f42480a583bac508b3ba700c1cefb6.JPG" class="fancy" data-fancybox="43">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/05f42480a583bac508b3ba700c1cefb6.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case row ">
-                    <div class="grid-6 grid-12_m">
-                        <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                        <div class="case__ba twentytwenty-container" style="height: 0px;">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/ba_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/83fcb658a40b91a402d9cb1090ec2fa3.jpg" alt="до" class="lozad twentytwenty-before" style="clip: rect(0px, 0px, 0px, 0px);">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/ba_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/3c8ab8d52f5c5260775c86e2af43b5e5.jpg" alt="псоле" class="lozad twentytwenty-after" style="clip: rect(0px, 0px, 0px, 0px);">
-                            <div class="twentytwenty-handle" style="left: 0px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="grid-6 grid-12_m">
-                        <div class="case__info">
-                        <div class="case__title">Сохранение зубов в здоровом состоянии</div>
-                        <div class="case__services">
-                            <span>Виниры Импланты</span>
-                        </div>
-                        <div class="user-content case__descr">
-                            1. Профессиональное отбеливание полости рта<br>
-                            2. 3D диагностика и планирование лечения<br>
-                            3. Wax-up (Восковое моделирование) 28 зубов<br>
-                            4. Установка 4 имплантатов Штрауман (Швейцария)<br>
-                            5. Изготовление 24 керамических виниров и 4 циркониевых коронок на имплантах 					
-                        </div>
-                        <div class="case__bottom">
-                            <div class="case__process">
-                                <div class="h4">Процесс работы</div>
-                                <div class="case__process__wall">
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/5233b00c635e81b803f13f7b0691e8f2.JPG" class="fancy" data-fancybox="10">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/5233b00c635e81b803f13f7b0691e8f2.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/a4342bae360f9c9f13464bc79882ccab.JPG" class="fancy" data-fancybox="10">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/a4342bae360f9c9f13464bc79882ccab.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/30bd375864e7611b98ee799034d10104.JPG" class="fancy" data-fancybox="10">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/30bd375864e7611b98ee799034d10104.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/766a9c8a3254f89dc9b611b14812e361.JPG" class="fancy" data-fancybox="10">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/766a9c8a3254f89dc9b611b14812e361.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/057a6e613998bdab832ca900dd564349.JPG" class="fancy" data-fancybox="10">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/057a6e613998bdab832ca900dd564349.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/349706a2aca1de5c05c5629d8d2ca7df.JPG" class="fancy" data-fancybox="10">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/349706a2aca1de5c05c5629d8d2ca7df.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/7eadf5eaa5833226ed6f50a918c8370a.JPG" class="fancy" data-fancybox="10">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/7eadf5eaa5833226ed6f50a918c8370a.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/82cb69185766f94fa77326401f92c063.JPG" class="fancy" data-fancybox="10">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/82cb69185766f94fa77326401f92c063.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/f17faa8c0f3659edf5f9e78e6fbc2e7c.JPG" class="fancy" data-fancybox="10">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/f17faa8c0f3659edf5f9e78e6fbc2e7c.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case row ">
-                    <div class="grid-6 grid-12_m">
-                        <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                        <div class="case__ba twentytwenty-container" style="height: 0px;">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/ba_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/c4ee4b9d2e0cf51076253c7c385d47fc.jpg" alt="до" class="lozad twentytwenty-before" style="clip: rect(0px, 0px, 0px, 0px);">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/ba_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/69e4c505eb51afa8144a87775e740c76.jpg" alt="псоле" class="lozad twentytwenty-after" style="clip: rect(0px, 0px, 0px, 0px);">
-                            <div class="twentytwenty-handle" style="left: 0px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="grid-6 grid-12_m">
-                        <div class="case__info">
-                        <div class="case__title">Голливудская улыбка </div>
-                        <div class="case__services">
-                            <span>Виниры и импланты</span>
-                        </div>
-                        <div class="user-content case__descr">
-                            1. Профессиональная гигиена полости рта<br>
-                            2. Профессиональное отбеливание Zoom 4<br>
-                            3. Wac-up 28 зубов (восковое моделирование)<br>
-                            4. Тест-драйв голливудской улыьки<br>
-                            5. Установка 2 имплантов Straumann (Швейцария)<br>
-                            6. Изготовлен циркониевый абатмент на 2 имплантатах<br>
-                            7. Изготовление 28 белоснежных виниров 					
-                        </div>
-                        <div class="case__bottom">
-                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="video-block fancy-video">
-                                <div class="video-block__img">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/video-thumb.jpg" alt="video">
-                                </div>
-                                <i class="i-play video-block__icon"></i>
-                            </a>
-                            <div class="case__process">
-                                <div class="h4">Процесс работы</div>
-                                <div class="case__process__wall">
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/b0e0024ad68c79f53dcd4a9a3f9e8ec1.JPG" class="fancy" data-fancybox="9">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/b0e0024ad68c79f53dcd4a9a3f9e8ec1.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/1144ccde1a3181f4b40c676935811a18.JPG" class="fancy" data-fancybox="9">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/1144ccde1a3181f4b40c676935811a18.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/f96075d92cec34f205cb1b6178d8c0c6.JPG" class="fancy" data-fancybox="9">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/f96075d92cec34f205cb1b6178d8c0c6.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/9d7c32d042ca454993bae2e2f2a60d6e.JPG" class="fancy" data-fancybox="9">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/9d7c32d042ca454993bae2e2f2a60d6e.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/d6a41ad8dc8e9d891e631415a2434679.JPG" class="fancy" data-fancybox="9">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/d6a41ad8dc8e9d891e631415a2434679.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/6fd6629bbfc71d65a4ad4635cfa4e331.JPG" class="fancy" data-fancybox="9">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/6fd6629bbfc71d65a4ad4635cfa4e331.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case row ">
-                    <div class="grid-6 grid-12_m">
-                        <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                        <div class="case__ba twentytwenty-container" style="height: 0px;">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/ba_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/735_500_240cd750bba9870f18aada2478b24840a/9850f69b0755e60b530ccb8ebc1dd088.JPG" alt="до" class="lozad twentytwenty-before" style="clip: rect(0px, 0px, 0px, 0px);">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/ba_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/735_500_240cd750bba9870f18aada2478b24840a/825ef5c7a383a2135940e843c6f57a7b.JPG" alt="псоле" class="lozad twentytwenty-after" style="clip: rect(0px, 0px, 0px, 0px);">
-                            <div class="twentytwenty-handle" style="left: 0px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="grid-6 grid-12_m">
-                        <div class="case__info">
-                        <div class="case__title">Минус 10 лет  за 1 год </div>
-                        <div class="case__services">
-                            <span>Естественная Голливудская улыбка </span>
-                        </div>
-                        <div class="user-content case__descr">
-                            1. Профессиональная гигиена полости рта<br>
-                            2. Санация полости рта<br>
-                            3. Предварительное лечение на Элайнерах (выравнивание зубов)<br>
-                            4. Wax-up (Восковое моделирование) голливудской улыбки<br>
-                            5. Установлен 1 индивидуальный циркониевый абатмент на имплантате Straumann (Швейцария) <br>
-                            6. 27 керамических виниров и 1 коронка на имплантате   					
-                        </div>
-                        <div class="case__bottom">
-                            <div class="case__process">
-                                <div class="h4">Процесс работы</div>
-                                <div class="case__process__wall">
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/6653d32200a1f19c71ac1efdfac76fb9.JPG" class="fancy" data-fancybox="60">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/6653d32200a1f19c71ac1efdfac76fb9.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/559363d2cc4fcdfd671153f00788eb50.JPG" class="fancy" data-fancybox="60">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/559363d2cc4fcdfd671153f00788eb50.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/81904b1ffef42a6c231e6c33be359eeb.JPG" class="fancy" data-fancybox="60">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/81904b1ffef42a6c231e6c33be359eeb.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/73a9abdf803ca6478d685ae690fc9c37.JPG" class="fancy" data-fancybox="60">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/73a9abdf803ca6478d685ae690fc9c37.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/96e5c7fdfc7860749c4fb7e9e7fc025e.JPG" class="fancy" data-fancybox="60">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/96e5c7fdfc7860749c4fb7e9e7fc025e.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                    <a href="<?php echo get_template_directory_uri(); ?>/images/259effc96c6400111c85908033838f69.JPG" class="fancy" data-fancybox="60">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pr_thumb.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/259effc96c6400111c85908033838f69.JPG" alt="процесс" class="lozad">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="s-promo is__nav-section" id="s-promo">
-            <div class="container">
-            <div class="sec-title sec-title--center">
-                <div class="h2">
-                    Lorem ipsum dolor sit amet.			
-                </div>
-            </div>
-            <div class="border-block promo-block">
-                <div class="border-block__content">
-                    <div class="promo-slider slider-arrows-gold">
-                    <div class="promo-slider__slide ">
-                        <div class="promo">
-                            <div class="promo__img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/73ddc0980b66b4ff53353118a1a808f8.png" data-src="<?php echo get_template_directory_uri(); ?>/images/73ddc0980b66b4ff53353118a1a808f8.png" data-toggle-class="visible" alt="promo" class="lozad visible" data-loaded="true">
-                            </div>
-                            <div class="promo__content">
-                                <div class="promo__title">Имплантация "Всё на 4-х" Straumann</div>
-                                <div class="promo__list-title">В цену входят:</div>
-                                <ul class="list-checked promo__list">
-                                    <li>Установка 4-х имплантов</li>
-                                    <li>Изготовление и установка протеза</li>
-                                    <li>Работа хирурга-имплантолога и ортопеда</li>
-                                    <li>Европейская анестезия и необходимые материалы</li>
-                                </ul>
-                                <a href="#" class="btn fancy-modal" data-src="#modal-promo-23">Участвовать в акции</a>
-                            </div>
-                        </div>
-                        <div id="modal-promo-23" class="modal modal-order border-block">
-                            <div class="border-block__content">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Участие в акции" name="form_subject">
-                                    <input type="hidden" value="Имплантация " Всё="" на="" 4-х"="" straumann"="" name="form_subject" data-label="Акция">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Наш администратор перезвонит вам в течение 2 минут.</div>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" autocomplete="off" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="promo-slider__slide">
-                        <div class="promo">
-                            <div class="promo__img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/5e519c30874aa106d4ae0cdc7f6eacad.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/5e519c30874aa106d4ae0cdc7f6eacad.jpg" data-toggle-class="visible" alt="promo" class="lozad visible" data-loaded="true">
-                            </div>
-                            <div class="promo__content">
-                                <div class="promo__title">Имплантация "Всё на 4-х" Dentium SuperLine</div>
-                                <div class="promo__list-title">В цену входит:</div>
-                                <ul class="list-checked promo__list">
-                                    <li>Установка 4-х имплантов</li>
-                                    <li>Изготовление и установка протеза</li>
-                                    <li>Работа хирурга-имплантолога и ортопеда</li>
-                                    <li>Европейская анестезия и необходимые материалы</li>
-                                </ul>
-                                <a href="#" class="btn fancy-modal" data-src="#modal-promo-174">Участвовать в акции</a>
-                            </div>
-                        </div>
-                        <div id="modal-promo-174" class="modal modal-order border-block">
-                            <div class="border-block__content">
-                                <form class="ajax-form vertical-form" autocomplete="off">
-                                    <input type="hidden" value="Участие в акции" name="form_subject">
-                                    <input type="hidden" value="Имплантация " Всё="" на="" 4-х"="" dentium="" superline"="" name="form_subject" data-label="Акция">
-                                    <div class="form-header">
-                                    <div class="form-header__bubble">Наш администратор перезвонит вам в течение 2 минут.</div>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/bubble-man.jpg" alt="man" class="form-header__man">
-                                    </div>
-                                    <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
-                                    <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" autocomplete="off" maxlength="18">
-                                    <button type="submit" class="btn">Отправить</button>
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a>.</div>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="s-reviews is__nav-section" id="s-reviews">
-            <div class="container">
-            <div class="sec-title sec-title--center">
-                <div class="h2">
-                    Lorem ipsum dolor sit amet.			
-                </div>
-            </div>
-            <div class="row">
-                <div class="grid-3 grid-6_m">
-                    <a href="<?php echo get_template_directory_uri(); ?>/images/58dadc9fed86aed566edea1b9787b068.jpeg" class="review review__insta fancy">
-                        <div class="review__header">Елена Владимировна</div>
-                        <div class="review__photo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/58dadc9fed86aed566edea1b9787b068.jpeg" data-src="<?php echo get_template_directory_uri(); ?>/images/58dadc9fed86aed566edea1b9787b068.jpeg" alt="Елена Владимировна" class="lozad" data-loaded="true">
-                        </div>
-                        <span class="review__link blue-link">Подробнее</span>
-                    </a>
-                </div>
-                <div class="grid-3 grid-6_m">
-                    <a href="https://youtu.be/9JwCMeWNFSo" class="review review__insta fancy-video">
-                        <div class="review__header">Екатерина </div>
-                        <div class="video-block">
-                        <div class="video-block__img">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/7bbdd61cfa2418c47a3f8ecf755d5d5d.jpeg" data-src="<?php echo get_template_directory_uri(); ?>/images/7bbdd61cfa2418c47a3f8ecf755d5d5d.jpeg" alt="Екатерина " class="lozad" data-loaded="true">
-                        </div>
-                        <i class="i-play video-block__icon video-block__icon--bottom"></i>
-                        </div>
-                        <span class="review__video-title"></span>
-                        <span class="review__link blue-link">Подробнее</span>
-                    </a>
-                </div>
-                <div class="grid-3 grid-6_m">
-                    <a href="https://youtu.be/w3hqAkAzKhg" class="review review__insta fancy-video">
-                        <div class="review__header">Наталья</div>
-                        <div class="video-block">
-                        <div class="video-block__img">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/a323d3db6eadde47bd1e6c4b58246e0d.jpeg" data-src="<?php echo get_template_directory_uri(); ?>/images/a323d3db6eadde47bd1e6c4b58246e0d.jpeg" alt="Наталья" class="lozad" data-loaded="true">
-                        </div>
-                        <i class="i-play video-block__icon video-block__icon--bottom"></i>
-                        </div>
-                        <span class="review__video-title"></span>
-                        <span class="review__link blue-link">Подробнее</span>
-                    </a>
-                </div>
-                <div class="grid-3 grid-6_m">
-                    <a href="<?php echo get_template_directory_uri(); ?>/images/b77fc3491df8267c9cd4b97c2ad4dd75.jpeg" class="review review__insta fancy">
-                        <div class="review__header"> Екатерина</div>
-                        <div class="review__photo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/b77fc3491df8267c9cd4b97c2ad4dd75.jpeg" data-src="<?php echo get_template_directory_uri(); ?>/images/b77fc3491df8267c9cd4b97c2ad4dd75.jpeg" alt=" Екатерина" class="lozad" data-loaded="true">
-                        </div>
-                        <span class="review__link blue-link">Подробнее</span>
-                    </a>
-                </div>
-                <div class="grid-3 grid-6_m">
-                    <a href="https://youtu.be/CmvgYHrD0uY" class="review review__insta fancy-video">
-                        <div class="review__header">Илья Кусакин</div>
-                        <div class="video-block">
-                        <div class="video-block__img">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/2cb6941488b21f3fdd014cc9f6b91fd2.jpeg" data-src="<?php echo get_template_directory_uri(); ?>/images/2cb6941488b21f3fdd014cc9f6b91fd2.jpeg" alt="Илья Кусакин" class="lozad" data-loaded="true">
-                        </div>
-                        <i class="i-play video-block__icon video-block__icon--bottom"></i>
-                        </div>
-                        <span class="review__video-title"></span>
-                        <span class="review__link blue-link">Подробнее</span>
-                    </a>
-                </div>
-                <div class="grid-3 grid-6_m">
-                    <a href="https://youtu.be/WbIOL0IlrvQ" class="review review__insta fancy-video">
-                        <div class="review__header"> Алла Константиновна </div>
-                        <div class="video-block">
-                        <div class="video-block__img">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/8670dfeac0e75c174a52286ac4d63c36.jpeg" data-src="<?php echo get_template_directory_uri(); ?>/images/8670dfeac0e75c174a52286ac4d63c36.jpeg" alt=" Алла Константиновна " class="lozad" data-loaded="true">
-                        </div>
-                        <i class="i-play video-block__icon video-block__icon--bottom"></i>
-                        </div>
-                        <span class="review__video-title">Рассказ о том как меняется жизнь</span>
-                        <span class="review__link blue-link">Подробнее</span>
-                    </a>
-                </div>
-                <div class="grid-3 grid-6_m">
-                    <a href="https://youtu.be/0zkuIVMz5es" class="review review__insta fancy-video">
-                        <div class="review__header">Владимир Ильич Кусакин</div>
-                        <div class="video-block">
-                        <div class="video-block__img">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/1d2706b3f49ca48ddc2c311f16811704.jpeg" data-src="<?php echo get_template_directory_uri(); ?>/images/1d2706b3f49ca48ddc2c311f16811704.jpeg" alt="Владимир Ильич Кусакин" class="lozad" data-loaded="true">
-                        </div>
-                        <i class="i-play video-block__icon video-block__icon--bottom"></i>
-                        </div>
-                        <span class="review__video-title"></span>
-                        <span class="review__link blue-link">Подробнее</span>
-                    </a>
-                </div>
-                <div class="grid-3 grid-6_m">
-                    <a href="https://youtu.be/8gyBcNHirdk" class="review review__insta fancy-video">
-                        <div class="review__header">Катя </div>
-                        <div class="video-block">
-                        <div class="video-block__img">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/f84bdfe1f9a06c8fc680bd77783611b5.jpeg" data-src="<?php echo get_template_directory_uri(); ?>/images/f84bdfe1f9a06c8fc680bd77783611b5.jpeg" alt="Катя " class="lozad" data-loaded="true">
-                        </div>
-                        <i class="i-play video-block__icon video-block__icon--bottom"></i>
-                        </div>
-                        <span class="review__video-title"></span>
-                        <span class="review__link blue-link">Подробнее</span>
-                    </a>
-                </div>
-            </div>
-            <div class="reviews-hidden">
-                <div class="row">
-                    <div class="grid-3 grid-6_m">
-                        <a href="https://youtu.be/Gv3C5vDNfSw" class="review review__insta fancy-video">
-                        <div class="review__header">Илья Кусакин </div>
-                        <div class="video-block">
-                            <div class="video-block__img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/video-thumb.png" data-src="<?php echo get_template_directory_uri(); ?>/images/6c5569bc73ce30617c03e5631b925a31.jpeg" alt="Илья Кусакин " class="lozad">
-                            </div>
-                            <i class="i-play video-block__icon video-block__icon--bottom"></i>
-                        </div>
-                        <span class="review__video-title"></span>
-                        <span class="review__link blue-link">Подробнее</span>
-                        </a>
-                    </div>
-                    <div class="grid-3 grid-6_m">
-                        <a href="#" class="review review__insta fancy-modal" data-src="#modal-review-113">
-                        <div class="review__header">Ольга</div>
-                        <div class="review__text">
-                            В клинику обратилась впервые, попала сюда случайно и все получилось удачно. Мне ставили пломбу между зубами, все прошло хорошо. Врачи внимательные и доброжелательные, у меня было два доктора и обоими я осталась очень довольна. Оборудование кабинета в хорошем состоянии, в клинике чисто и, вообще, у ...								
-                        </div>
-                        <span class="review__link blue-link">Подробнее</span>
-                        </a>
-                        <div class="modal modal--review" id="modal-review-113">
-                        <div class="review__header">Ольга</div>
-                        <div class="review__text">
-                            В клинику обратилась впервые, попала сюда случайно и все получилось удачно. Мне ставили пломбу между зубами, все прошло хорошо. Врачи внимательные и доброжелательные, у меня было два доктора и обоими я осталась очень довольна. Оборудование кабинета в хорошем состоянии, в клинике чисто и, вообще, у них все в порядке.								
-                        </div>
-                        </div>
-                    </div>
-                    <div class="grid-3 grid-6_m">
-                        <a href="https://youtu.be/LFoJKKREj58" class="review review__insta fancy-video">
-                        <div class="review__header">Никита</div>
-                        <div class="video-block">
-                            <div class="video-block__img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/video-thumb.png" data-src="<?php echo get_template_directory_uri(); ?>/images/c5b2ab7d9235b5f4d5b7e441605699ed.jpeg" alt="Никита" class="lozad">
-                            </div>
-                            <i class="i-play video-block__icon video-block__icon--bottom"></i>
-                        </div>
-                        <span class="review__video-title"></span>
-                        <span class="review__link blue-link">Подробнее</span>
-                        </a>
-                    </div>
-                    <div class="grid-3 grid-6_m">
-                        <a href="https://youtu.be/ih4RNpLq06s" class="review review__insta fancy-video">
-                        <div class="review__header">Эдуард </div>
-                        <div class="video-block">
-                            <div class="video-block__img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/video-thumb.png" data-src="<?php echo get_template_directory_uri(); ?>/images/3ac00c76a7dc91ff53ccb7019f583657.jpeg" alt="Эдуард " class="lozad">
-                            </div>
-                            <i class="i-play video-block__icon video-block__icon--bottom"></i>
-                        </div>
-                        <span class="review__video-title"></span>
-                        <span class="review__link blue-link">Подробнее</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="reviews-more"><span>Смотреть еще отзывы</span> <i class="i-down"></i></div>
-            </div>
-        </section>
+                    </section>
+                <?php
+            }
+        ?>
+
         <section class="s-team lozad is__nav-section" id="s-team" data-background-image="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" data-loaded="true" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/bg-doctors.jpg);">
             <div class="container">
             <div class="sec-title sec-title--arrows">
@@ -1370,7 +1044,7 @@
                 <img data-src="<?php echo get_template_directory_uri(); ?>/images/man.png" alt="" class="lozad delegate__man" src="<?php echo get_template_directory_uri(); ?>/images/man.png" data-loaded="true">
             </div>
             </div>
-        </section> -->
+        </section>
         <footer class="s-footer">
             <div class="container">
             <div class="footer">
