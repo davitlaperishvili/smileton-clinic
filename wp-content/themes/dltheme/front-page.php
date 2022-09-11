@@ -358,7 +358,6 @@
                 <?php
             }
         ?>
-        
         <?php $cases = get_field('cases') ?>
         <?php 
             if($cases) {
@@ -522,7 +521,6 @@
                 <?php
             }
         ?>
-
         <?php 
             $reviews = get_field('reviews');
             $showNumber = 8;
@@ -667,159 +665,115 @@
                 <?php
             }
         ?>
+        <?php 
+            $team = get_field('team');
+        ?>
+        <?php 
+            if($team){
+                ?>
+                    <section class="s-team lozad is__nav-section" id="s-team" style="background-image: url(<?php echo $team['block_bg']['url'] ?>);">
+                        <div class="container">
+                            <div class="sec-title sec-title--arrows">
+                                <div class="h2">
+                                    <?php echo $team['block_title'] ?>
+                                </div>
+                            </div>
+                            <div class="team-thumbs slider-top-arrows" >
+                                <?php 
+                                    foreach($team['team_tabs'] as $key => $item) {
+                                        ?>
+                                            <div class="team-thumbs__slide">
+                                                <div class="team-thumb <?php echo  $key == 0 ? 'active' : '' ?>">
+                                                    <img data-toggle-class="visible" data-src="<?php echo $item['team_tab']['image']['url'] ?>" alt="<?php echo $item['team_tab']['name'] ?>" class="lozad visible" src="<?php echo $item['team_tab']['image']['url'] ?>" data-loaded="true">
+                                                    <span><?php echo $item['team_tab']['name'] ?></span>
+                                                </div>
+                                            </div>
+                                        <?php
+                                    }
+                                ?>
+                            </div>
+                            <div class="heroes">
+                                <?php 
+                                    foreach($team['team_tabs'] as $key => $item) {
+                                        ?>
+                                            <div class="hero <?php echo  $key == 0 ? 'active' : '' ?>">
+                                                <div class="hero__content">
+                                                    <div class="hero__name"><?php echo $item['tab_content']['full_name'] ?></div>
+                                                    <div class="hero__spec"><?php echo $item['tab_content']['spec'] ?></div>
+                                                    <div class="hero__descr"><?php echo $item['tab_content']['desc'] ?></div>
+                                                    <?php 
+                                                        if($item['tab_content']['sign_img']){
+                                                            ?>
+                                                                <img src="<?php echo $item['tab_content']['sign_img']['url'] ?>" alt="sign" class="hero__sign">
+                                                            <?php
+                                                        }
+                                                    ?>
+                                                </div>
+                                                <?php 
+                                                    if($item['tab_content']['team_member_image']){
+                                                        ?>
+                                                            <div class="hero__photo">
+                                                                <img src="<?php echo $item['tab_content']['team_member_image']['url'] ?>" data-src="<?php echo $item['tab_content']['team_member_image']['url'] ?>" alt="<?php echo $item['tab_content']['full_name'] ?>" class="lozad visible" data-toggle-class="visible" data-loaded="true">
+                                                            </div>
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </div>
+                                        <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    </section>
+                <?php
+            }
+        ?>
+        <?php $serts = get_field('serts') ?>
+        <?php 
+            if($serts) {
+                ?>
+                    <section class="s-serts is__nav-section" id="s-serts">
+                        <div class="container">
+                            <div class="sec-title sec-title--center">
+                                <div class="h2">
+                                    <?php echo $serts['block_title'] ?>		
+                                </div>
+                                <div class="h4">
+                                    <?php echo $serts['block_subtitle'] ?> 			
+                                </div>
+                            </div>
+                            <div class="serts-slider">
+                                <?php 
+                                    foreach( $serts['serts_list'] as $sert){
+                                        ?>
+                                            <div class="serts-slider__item">
+                                                <?php 
+                                                    if($sert['sert_bg']){
+                                                        ?>
+                                                            <img src="<?php echo $sert['sert_bg']['url'] ?>" alt="<?php echo $sert['sert_bg']['alt'] ?>" class="serts-slider__item__bg">
+                                                        <?php
+                                                    }
+                                                ?>
+                                                <?php
+                                                    if($sert['sert_image']){
+                                                        ?>
+                                                            <a href="<?php echo $sert['sert_image']['url'] ?>" data-fancybox="serts">
+                                                                <img data-src="<?php echo $sert['sert_image']['url'] ?>" alt="<?php echo $sert['sert_image']['alt'] ?>" class="serts-slider__item__sert lozad" src="<?php echo $sert['sert_image']['url'] ?>" data-loaded="true">
+                                                            </a>
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </div>
+                                        <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    </section>
+                <?php
+            }
+        ?>
 
-        <section class="s-team lozad is__nav-section" id="s-team" data-background-image="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" data-loaded="true" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/bg-doctors.jpg);">
-            <div class="container">
-            <div class="sec-title sec-title--arrows">
-                <div class="h2">
-                    Lorem ipsum dolor sit amet.
-                </div>
-            </div>
-            <div class="team-thumbs slider-top-arrows" >
-                <div class="team-thumbs__slide">
-                    <div class="team-thumb active">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/4e68481976d8698302f56d0edffc633e.jpg" alt="Магомед <br>Хасенов " class="lozad visible" src="<?php echo get_template_directory_uri(); ?>/images/4e68481976d8698302f56d0edffc633e.jpg" data-loaded="true">
-                        <span>Магомед <br>Хасенов </span>
-                    </div>
-                    </div>
-                    <div class="team-thumbs__slide">
-                    <div class="team-thumb ">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/56ebeb25c1f25cfae1510df8fe74b9cd.jpg" alt="Ольга <br>Мустафаева" class="lozad visible" src="<?php echo get_template_directory_uri(); ?>/images/56ebeb25c1f25cfae1510df8fe74b9cd.jpg" data-loaded="true">
-                        <span>Ольга <br>Мустафаева</span>
-                    </div>
-                    </div>
-                    <div class="team-thumbs__slide">
-                    <div class="team-thumb ">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/a2e5ac605a582803462fdc2b906a06a0.jpg" alt="Мурад  <br>Ахмедов" class="lozad visible" src="<?php echo get_template_directory_uri(); ?>/images/a2e5ac605a582803462fdc2b906a06a0.jpg" data-loaded="true">
-                        <span>Мурад  <br>Ахмедов</span>
-                    </div>
-                    </div>
-                    <div class="team-thumbs__slide">
-                    <div class="team-thumb ">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/c2198e6368302845c48c9d7761628206.jpg" alt="Аминат <br>Хасенова" class="lozad visible" src="<?php echo get_template_directory_uri(); ?>/images/c2198e6368302845c48c9d7761628206.jpg" data-loaded="true">
-                        <span>Аминат <br>Хасенова</span>
-                    </div>
-                    </div>
-                    <div class="team-thumbs__slide" >
-                    <div class="team-thumb ">
-                        <img data-toggle-class="visible" data-src="<?php echo get_template_directory_uri(); ?>/images/a5d9e81835b98b524097e5b475ef7ca2.png" alt="Тигран <br> Симонян " class="lozad visible" src="<?php echo get_template_directory_uri(); ?>/images/a5d9e81835b98b524097e5b475ef7ca2.png" data-loaded="true">
-                        <span>Тигран <br> Симонян </span>
-                    </div>
-                    </div>
-            </div>
-            <div class="heroes">
-                <div class="hero active">
-                    <div class="hero__content">
-                        <div class="hero__name">Магомед <br>Алиевич Хасенов</div>
-                        <div class="hero__spec">Основатель Smileton Clinik Врач-стоматолог, хирург-ортопед</div>
-                        <div class="hero__descr">"Все началось в детстве, с огромного желания помогать и отсутствия слов НЕТ, не Могу перед поставленной задачей. 
-                        Любовь с детства к точности и внимание к деталям, привела меня в стоматологию,
-                        где я дарю надежду на новую жизнь и гарантию на желание улыбаться 24/7"
-                        Стоматолог ортопед-хирург с опытом более 15 000 часов. Основная специализация-эстетическое протезирование и импланты.
-                        Более 120 курсов повышения квалификации по всему миру. 
-                        Лучший стоматолог страны 2019 году по Версии "Премия Человек Года 2019"
-                        </div>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/f2cffb88ec7004d781a8ba89ede5a759.png" alt="sign" class="hero__sign">
-                    </div>
-                    <div class="hero__photo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/aa62267ee7608dc976b6ad736e23d5bf.png" data-src="<?php echo get_template_directory_uri(); ?>/images/aa62267ee7608dc976b6ad736e23d5bf.png" alt="Магомед <br>Хасенов " class="lozad visible" data-toggle-class="visible" data-loaded="true">
-                    </div>
-                </div>
-                <div class="hero ">
-                    <div class="hero__content">
-                        <div class="hero__name">Ольга Батыровна <br>Мустафаева</div>
-                        <div class="hero__spec">Врач-стоматолог, терапевт.</div>
-                        <div class="hero__descr">Я с детства хотела быть врачом.  Люблю свою работу за знакомство с новыми людьми, за то, что всегда есть чему учиться и куда расти.Сегодня мне хочется, чтобы люди знали - лечение может быть без страха и боли. Наверное, поэтому она до сих пор для меня не стала рутиной.”
-                        Специалист по лечению зубов с микроскопом. Более 10 лет практикую зубосохраняющие методики, успешно лечит кисты, извлекает отломки инструментов из корневых каналов.
-                        </div>
-                    </div>
-                    <div class="hero__photo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/big-thumb.png" data-src="<?php echo get_template_directory_uri(); ?>/images/80d922c73add3b40ef5b9e444c67c21b.png" alt="Ольга <br>Мустафаева" class="lozad" data-toggle-class="visible">
-                    </div>
-                </div>
-                <div class="hero ">
-                    <div class="hero__content">
-                        <div class="hero__name">Мурад Нурулисланович <br>Ахмедов</div>
-                        <div class="hero__spec">Врач-стоматолог, хирург-ортопед</div>
-                        <div class="hero__descr">Наши врачи практикуют как традиционные технологии, так и самые современные методики. В нашей клинике вы всегда можете рассчитывать на теплый прием и качественное лечение даже в самых сложных случаях. Мы часто принимаем пациентов, от которых отказались другие стоматологи, и сохраняем им зубы!</div>
-                    </div>
-                    <div class="hero__photo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/big-thumb.png" data-src="<?php echo get_template_directory_uri(); ?>/images/d2d0b5432a378dc0ae9b5eb64988754a.png" alt="Мурад  <br>Ахмедов" class="lozad" data-toggle-class="visible">
-                    </div>
-                </div>
-                <div class="hero ">
-                    <div class="hero__content">
-                        <div class="hero__name">Аминат Алиевна  <br>Хасенова</div>
-                        <div class="hero__spec">Врач-стоматолог, гигиенист-терапевт</div>
-                        <div class="hero__descr">Наши врачи практикуют как традиционные технологии, так и самые современные методики. В нашей клинике вы всегда можете рассчитывать на теплый прием и качественное лечение даже в самых сложных случаях. Мы часто принимаем пациентов, от которых отказались другие стоматологи, и сохраняем им зубы!</div>
-                    </div>
-                    <div class="hero__photo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/big-thumb.png" data-src="<?php echo get_template_directory_uri(); ?>/images/97f40b64960f743a27bfc187a7caad94.png" alt="Аминат <br>Хасенова" class="lozad" data-toggle-class="visible">
-                    </div>
-                </div>
-                <div class="hero ">
-                    <div class="hero__content">
-                        <div class="hero__name">Тигран Федяевич <br> Симонян</div>
-                        <div class="hero__spec">Врач-стоматолог, ортодонт.</div>
-                        <div class="hero__descr">Наши врачи практикуют как традиционные технологии, так и самые современные методики. В нашей клинике вы всегда можете рассчитывать на теплый прием и качественное лечение даже в самых сложных случаях. Мы часто принимаем пациентов, от которых отказались другие стоматологи, и сохраняем им зубы!</div>
-                    </div>
-                    <div class="hero__photo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/big-thumb.png" data-src="<?php echo get_template_directory_uri(); ?>/images/09c660e65d47f6e75ff4abbbd563b1c7.png" alt="Тигран <br> Симонян " class="lozad" data-toggle-class="visible">
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="s-serts is__nav-section" id="s-serts">
-            <div class="container">
-            <div class="sec-title sec-title--center">
-                <div class="h2">
-                    Lorem ipsum dolor sit amet.			
-                </div>
-                <div class="h4">
-                    Lorem ipsum 			
-                </div>
-            </div>
-            <div class="serts-slider">
-                <div class="serts-slider__item">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" alt="" class="serts-slider__item__bg">
-                    <a href="<?php echo get_template_directory_uri(); ?>/images/5a6350e8e04d25624b53e400a278634d.jpg" data-fancybox="serts">
-                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/5a6350e8e04d25624b53e400a278634d.jpg" alt="Сертификат" class="serts-slider__item__sert lozad" src="<?php echo get_template_directory_uri(); ?>/images/5a6350e8e04d25624b53e400a278634d.jpg" data-loaded="true">
-                    </a>
-                    </div>
-                    <div class="serts-slider__item">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" alt="" class="serts-slider__item__bg">
-                    <a href="<?php echo get_template_directory_uri(); ?>/images/f8d8773b6914d1b1fcf40c75f373a6be.jpg" data-fancybox="serts">
-                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/f8d8773b6914d1b1fcf40c75f373a6be.jpg" alt="Сертификат" class="serts-slider__item__sert lozad" src="<?php echo get_template_directory_uri(); ?>/images/f8d8773b6914d1b1fcf40c75f373a6be.jpg" data-loaded="true">
-                    </a>
-                    </div>
-                    <div class="serts-slider__item">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" alt="" class="serts-slider__item__bg">
-                    <a href="<?php echo get_template_directory_uri(); ?>/images/dc912c4091a55c2559023f9d83228a4b.jpg" data-fancybox="serts">
-                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/dc912c4091a55c2559023f9d83228a4b.jpg" alt="Сертификат" class="serts-slider__item__sert lozad" src="<?php echo get_template_directory_uri(); ?>/images/dc912c4091a55c2559023f9d83228a4b.jpg" data-loaded="true">
-                    </a>
-                    </div>
-                    <div class="serts-slider__item">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" alt="" class="serts-slider__item__bg">
-                    <a href="<?php echo get_template_directory_uri(); ?>/images/66e984f230ffe01701cbf1d4aca02d42.jpg" data-fancybox="serts">
-                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/66e984f230ffe01701cbf1d4aca02d42.jpg" alt="Сертификат" class="serts-slider__item__sert lozad" src="<?php echo get_template_directory_uri(); ?>/images/66e984f230ffe01701cbf1d4aca02d42.jpg" data-loaded="true">
-                    </a>
-                    </div>
-                    <div class="serts-slider__item">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" alt="" class="serts-slider__item__bg">
-                    <a href="<?php echo get_template_directory_uri(); ?>/images/48944739580d151b9f6dfd310c3eecce.jpg" data-fancybox="serts">
-                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/48944739580d151b9f6dfd310c3eecce.jpg" alt="Сертификат" class="serts-slider__item__sert lozad" src="<?php echo get_template_directory_uri(); ?>/images/48944739580d151b9f6dfd310c3eecce.jpg" data-loaded="true">
-                    </a>
-                    </div>
-                    <div class="serts-slider__item serts-slider__item--big" >
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/bg-big.jpg" alt="" class="serts-slider__item__bg">
-                    <a href="<?php echo get_template_directory_uri(); ?>/images/73e6b5529721d1e96c453a3db7507a61.jpg" data-fancybox="serts">
-                    <img data-src="<?php echo get_template_directory_uri(); ?>/images/73e6b5529721d1e96c453a3db7507a61.jpg" alt="Сертификат" class="serts-slider__item__sert lozad">
-                    </a>
-                    </div>
-            </div>
-            </div>
-        </section>
         <section class="s-about">
             <div class="container">
             <div class="row">
