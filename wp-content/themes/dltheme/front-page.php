@@ -773,81 +773,61 @@
                 <?php
             }
         ?>
+        <?php $about_us = get_field('about_us') ?>
+        <?php 
+            if($about_us) {
+                ?>
+                <section class="s-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="grid-6 grid-12_m">
+                                <div class="about-cite">
+                                    <div class="about-cite__text">
+                                    <?php echo $about_us['quote'] ?>				
+                                    </div>
+                                    <div class="about-cite__hwo">
+                                    <p><?php echo $about_us['author_name'] ?></p>
+                                    <?php 
+                                        if($about_us['author_sign']){
+                                            ?>
+                                                <img src="<?php echo $about_us['author_sign']['url'] ?>" alt="sign" class="about-cite__sign">
+                                            <?php
+                                        }
+                                    ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-6 grid-12_m">
+                                <div class="user-content about-right-text">
+                                   <?php echo $about_us['about_us_text'] ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-triggers row">
+                            <?php 
+                                foreach($about_us['why_us'] as $key => $item) {
+                                    ?>
+                                        <div class="<?php echo $key == 0 || $key == 1 ? "grid-6" : "grid-4" ?> grid-12_m">
+                                            <div class="about-trigger about-trigger--big">
+                                                <div class="about-trigger__content">
+                                                <div class="h4">
+                                                    <?php echo $item['title'] ?>
+                                                </div>
+                                                <div><?php echo $item['desc'] ?></div>
+                                                </div>
+                                                <img data-src="<?php echo $item['image']['url'] ?>" alt="<?php echo $item['image']['alt'] ?>" class="about-trigger__img lozad" src="<?php echo $item['image']['url'] ?>" data-loaded="true">
+                                            </div>
+                                        </div>
+                                    <?php
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </section>
+                <?php
+            }
+        ?>
 
-        <section class="s-about">
-            <div class="container">
-            <div class="row">
-                <div class="grid-6 grid-12_m">
-                    <div class="about-cite">
-                        <div class="about-cite__text">
-                        Мы оказываем качественные услуги в области ортодонтии, имплантологии, хирургии, терапии, а также эстетической стоматологии.					
-                        </div>
-                        <div class="about-cite__hwo">
-                        <p>Магомед Алиевич Хасенов<br>главный врач, основатель клиники</p>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/sign.png" alt="sign" class="about-cite__sign">
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-6 grid-12_m">
-                    <div class="user-content about-right-text">
-                        <p>
-                        Наши врачи практикуют как традиционные технологии, так и самые современные методики. В нашей клинике ООО «Дентал Имплант» вы всегда можете рассчитывать на теплый прием и качественное лечение даже в самых сложных случаях. Мы часто принимаем пациентов, от которых отказались другие стоматологи, и сохраняем им зубы!
-                        </p>
-                        <p>
-                        К нам можно приходить не только за экстренной помощью, но и на профилактические процедуры. Кроме чистки и отбеливания, мы проводим уроки гигиены каждому пациенту и рассказываем, как ему самостоятельно ухаживать за полостью рта, учитывая ее индивидуальные особенности. Все кабинеты «Центра» оснащены новейшим оборудованием, позволяющими безболезненно проводить даже сложные операции. Приходите к нам всей семьей — мы способны помочь вам в любой ситуации.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="about-triggers row">
-                <div class="grid-6 grid-12_m">
-                    <div class="about-trigger about-trigger--big">
-                        <div class="about-trigger__content">
-                        <div class="h4">Бесшумное лечение</div>
-                        <div>Во время процедур мы предлагаем наушники для комфортного просмотра фильмов или сериалов. Вы можете выбрать любой в сервисе ivi.</div>
-                        </div>
-                        <img data-src="<?php echo get_template_directory_uri(); ?>/images/1.jpg" alt="1" class="about-trigger__img lozad" src="<?php echo get_template_directory_uri(); ?>/images/1.jpg" data-loaded="true">
-                    </div>
-                </div>
-                <div class="grid-6 grid-12_m">
-                    <div class="about-trigger about-trigger--big">
-                        <div class="about-trigger__content">
-                        <div class="h4">Гигиенические наборы</div>
-                        <div>В нашей клинике всегда есть одноразовые щетки для чистки зубов и ополаскиватель, на тот случай, если после рабочего дня вы не успеваете подготовиться к визиту стоматолога.</div>
-                        </div>
-                        <img data-src="<?php echo get_template_directory_uri(); ?>/images/2.jpg" alt="1" class="about-trigger__img lozad" src="<?php echo get_template_directory_uri(); ?>/images/2.jpg" data-loaded="true">
-                    </div>
-                </div>
-                <div class="grid-4 grid-12_m">
-                    <div class="about-trigger">
-                        <div class="about-trigger__content">
-                        <div class="h4">Бесплатное такси</div>
-                        <div>Если вы не можете к нам приехать, мы бесплатно привезем вас в клинику и увезем домой или на работу.</div>
-                        </div>
-                        <img data-src="<?php echo get_template_directory_uri(); ?>/images/3.jpg" alt="1" class="about-trigger__img lozad" src="<?php echo get_template_directory_uri(); ?>/images/3.jpg" data-loaded="true">
-                    </div>
-                </div>
-                <div class="grid-4 grid-12_m">
-                    <div class="about-trigger">
-                        <div class="about-trigger__content">
-                        <div class="h4">Бесплатный WI-FI</div>
-                        <div>Во время ожидания приема вы можете бесплатно подключиться к нашему интернету, чтобы пообщаться с близкими или решить рабочие вопросы.</div>
-                        </div>
-                        <img data-src="<?php echo get_template_directory_uri(); ?>/images/4.jpg" alt="1" class="about-trigger__img lozad" src="<?php echo get_template_directory_uri(); ?>/images/4.jpg" data-loaded="true">
-                    </div>
-                </div>
-                <div class="grid-4 grid-12_m">
-                    <div class="about-trigger">
-                        <div class="about-trigger__content">
-                        <div class="h4">Кофе, чай и вода</div>
-                        <div>Администратор клиники всегда предложит гостям чашку ароматного кофе или стакан воды.</div>
-                        </div>
-                        <img data-src="<?php echo get_template_directory_uri(); ?>/images/5.jpg" alt="1" class="about-trigger__img lozad" src="<?php echo get_template_directory_uri(); ?>/images/5.jpg" data-loaded="true">
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
         <section class="s-contacts is__nav-section" id="s-contacts">
             <div class="container">
             <div class="sec-title sec-title--center">
@@ -880,6 +860,7 @@
             </div>
             </div>
         </section>
+        
         <section class="s-faq is__nav-section" id="s-faq">
             <div class="container">
             <div class="sec-title sec-title--center">
