@@ -9,6 +9,8 @@
 	$whatsapp = get_field('whatsapp', 'option');
 	$adress = get_field('adress', 'option');
 	$site_logo = get_field('site_logo', 'option');
+	$footer = get_field('footer', 'option');
+	$site_menu = get_field('site_menu', 'option');
 ?>
 <div id="panel"></div>
 <div class="burger">
@@ -20,46 +22,16 @@
             <div class="aside">
             <a href="#s-intro" class="scrollto"><img src="<?php echo $site_logo['url'] ?>" alt="<?php echo $site_logo['alt'] ?>" class="aside__logo"></a>
             <nav class="aside__nav">
-                <a href="#s-serts" class="aside__nav__link scrollto">
-                    <i class="i-nav-about"></i>
-                    <span>О Клинке</span>
-                </a>
-                <a href="#s-cases" class="aside__nav__link scrollto">
-                    <i class="i-nav-cases"></i>
-                    <span>Наши работы</span>
-                </a>
-                <a href="#s-services" class="aside__nav__link scrollto">
-                    <i class="i-nav-services"></i>
-                    <span>Услуги</span>
-                </a>
-                <a href="#s-promo" class="aside__nav__link scrollto">
-                    <i class="i-nav-promo"></i>
-                    <span>Акции</span>
-                </a>
-                <a href="#s-reviews" class="aside__nav__link scrollto">
-                    <i class="i-nav-reviews"></i>
-                    <span>Отзывы</span>
-                </a>
-                <a href="#s-team" class="aside__nav__link scrollto">
-                    <i class="i-nav-team"></i>
-                    <span>Команда</span>
-                </a>
-                <!-- <a href="/price/" class="aside__nav__page ">
-                    <i class="i-price"></i>
-                    <span>Прайс-лист</span>
-                </a> -->
-                <a href="#s-contacts" class="aside__nav__link scrollto">
-                    <i class="i-nav-contacts"></i>
-                    <span>Контакты</span>
-                </a>
-                <a href="#s-faq" class="aside__nav__link scrollto">
-                    <i class="i-nav-faq"></i>
-                    <span>Вопрос–Ответ</span>
-                </a>
-                <a href="#s-delegate" class="aside__nav__link scrollto">
-                    <i class="i-nav-stom"></i>
-                    <span>Стоматологам</span>
-                </a>
+                <?php 
+                    foreach( $site_menu as $item ){
+                        ?>
+                            <a href="<?php echo $item['url'] ?>" class="aside__nav__link scrollto">
+                                <i class="<?php echo $item['icon_class'] ?>"></i>
+                                <span><?php echo $item['title'] ?></span>
+                            </a>
+                        <?php
+                    }
+                ?>
             </nav>
             <div class="aside__phone">
                 <i class="i-phone"></i>
@@ -827,176 +799,156 @@
                 <?php
             }
         ?>
-
-        <section class="s-contacts is__nav-section" id="s-contacts">
-            <div class="container">
-            <div class="sec-title sec-title--center">
-                <div class="h2">
-                    Lorem ipsum dolor sit amet.			
-                </div>
-            </div>
-            <div class="border-block contacts">
-                <div class="border-block__content">
-                    <div class="contacts__block">
-                        <div class="contacts__block__title">Как к нам добраться</div>
-                        <div class="contacts__block__main">Москва, ул. Перерва 45, к. 1</div>
-                        <div class="contacts__block__metro">Станция Братиславская (2 мин <i class="i-steps"></i>)</div>
-                        <a href="yandexnavi://build_route_on_map?lat_to=55.660892&amp;lon_to=37.747065" class="contacts__block__navigator">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/navigator.png" alt="Навигатор" width="30">
-                        <span>Путь в Яндекс.Навигаторе</span>
-                        </a>
-                    </div>
-                    <div class="contacts__block">
-                        <div class="contacts__block__title">Режим работы</div>
-                        <div class="contacts__block__main">09:00 — 21:00</div>
-                        <div class="contacts__block__blue">Без обеда и выходных</div>
-                    </div>
-                    <div class="contacts__block">
-                        <div class="contacts__block__title">Звоните</div>
-                        <a href="tel:<?php echo $phone ?>" class="contacts__block__main"><?php echo $phoneVisible ?></a>
-                        <div class="contacts__block__blue fancy-modal" data-src="#modal-callback">Заказать обратный звонок</div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
         
-        <section class="s-faq is__nav-section" id="s-faq">
-            <div class="container">
-            <div class="sec-title sec-title--center">
-                <div class="h2">
-                    Lorem ipsum dolor sit amet.			
-                </div>
-            </div>
-            <div class="faq">
-                <div class="faq__left">
-                    <div class="faq__questions">
-                        <div class="faq__q active">
-                        <span>Я слежу за зубами. Откуда кариес?</span>
-                        </div>
-                        <div class="faq__q ">
-                        <span>Можно ли спасти зубы, приговоренные к удалению?</span>
-                        </div>
-                        <div class="faq__q ">
-                        <span>Не поменяется ли цена в ходе лечения?</span>
-                        </div>
-                        <div class="faq__q ">
-                        <span>Будет больно?</span>
-                        </div>
-                        <div class="faq__q ">
-                        <span>Планирую поставить имплант, но боюсь, что не приживется.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__right">
-                    <div class="faq__answers">
-                        <div class="faq__a active">
-                        <div class="faq__a__title">Я слежу за зубами. Откуда кариес?</div>
-                        <div class="user-content faq__a__text">
-                            <p>Кариес образуется из остатков пищи, которые накапливаются в полости рта из-за неправильного или недостаточного ухода. И хотя многие пациенты уверены, что хорошо следят за гигиеной, часто это бывает не так. Кто-то не пользуется зубной нитью или ирригатором, кто-то пренебрегает вечерней чисткой зубов или просто делает это неправильно. В итоге накапливается налет. Микробы в налете активно размножаются и выделяют кислоту, которая постепенно разъедает эмаль. Так появляется кариес.  Для его профилактики мы предлагаем раз в полгода посещать стоматолога и проводить профессиональную гигиену полости рта. Процедура безопасная, она избавит зубы камней, подарит свежее дыхание и исключит саму причину возникновения кариеса.</p>
-                        </div>
-                        </div>
-                        <div class="faq__a ">
-                        <div class="faq__a__title">Можно ли спасти зубы, приговоренные к удалению?</div>
-                        <div class="user-content faq__a__text">
-                            Мы спасаем зубы в 90% случаях. В нашей клинике берутся за самые сложные ситуации и помогают пациентам сохранить зуб. Часто для этого необходимы знания сразу в нескольких областях: терапии, хирургии, ортопедии. Не во всех клиниках есть такие многопрофильные врачи. Наши специалисты владеют проверенными методиками, которые зарекомендовали себя в США, Германии, Японии, Швейцарии и позволяют сохранить, казалось бы, безнадежные зубы.				
-                        </div>
-                        </div>
-                        <div class="faq__a ">
-                        <div class="faq__a__title">Не поменяется ли цена в ходе лечения?</div>
-                        <div class="user-content faq__a__text">
-                            Многие пациенты задают нам этот вопрос. Во время первого приема врач вместе с вами составит план лечения, где укажет все необходимые процедуры. Они будут зафиксированы в договоре и не увеличатся, когда мы приступим к лечению.				
-                        </div>
-                        </div>
-                        <div class="faq__a ">
-                        <div class="faq__a__title">Будет больно?</div>
-                        <div class="user-content faq__a__text">
-                            Конечно, нет. Мы применяем новейшую методику компьютерной анестезии, благодаря которой анестетик в разогретом виде очень медленно вводится под контролем компьютера в рассчитанной дозировке. Это почти безболезненно и помогло не одному нашему пациенту избавиться от страха к анестезии.				
-                        </div>
-                        </div>
-                        <div class="faq__a ">
-                        <div class="faq__a__title">Планирую поставить имплант, но боюсь, что не приживется.</div>
-                        <div class="user-content faq__a__text">
-                            Ваши страхи напрасны. Благодаря постоянному обучению и совершенствованию имплантационной практики, применению современных методик и протоколов, а также использованию имплантационных систем, проверенных временем, мы сводим процент неудач к минимуму. В настоящее время для нас не существует абсолютных противопоказаний для имплантации. Наши врачи способны вернуть красивую улыбку пациентам с заболеваниями сердца, щитовидной железы, с сахарным диабетом, хотя еще пару лет назад это казалось достаточно сложной задачей.				
-                        </div>
-                        </div>
-                    </div>
-                    <div class="faq__order">
-                        <div class="faq__order__title">Нужна детальная консультация?</div>
-                        <div class="faq__order__subtitle">Оставьте заявку и мы свяжемся с вами в ближайшее время</div>
-                        <form class="ajax-form faq__order__form">
-                        <input type="hidden" value="Задали вопрос" name="form_subject">
-                        <div class="row">
-                            <div class="grid-6 grid-12_xs">
-                                <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
+        <?php 
+            $contacts = get_field('contacts')
+        ?>
+        <?php 
+            if($contacts) {
+                ?>  
+                    <section class="s-contacts is__nav-section" id="s-contacts">
+                        <div class="container">
+                        <div class="sec-title sec-title--center">
+                            <div class="h2">
+                                <?php echo $contacts['block_title'] ?>			
                             </div>
-                            <div class="grid-6 grid-12_xs">
-                                <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
-                            </div>
-                            <div class="grid-12">
-                                <textarea name="user_comment" placeholder="Ваш вопрос" data-label="Вопрос" class="input-text" rows="2"></textarea>
-                                <div class="form-bottom-row">
-                                    <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a></div>
-                                    <button type="submit" class="btn">Отправить вопрос</button>
+                        </div>
+                        <div class="border-block contacts">
+                            <div class="border-block__content">
+                                <div class="contacts__block">
+                                    <?php $column_1 = $contacts['column_1'] ?>
+                                    <div class="contacts__block__title"><?php echo $column_1['title'] ?></div>
+                                    <div class="contacts__block__main"><?php echo $column_1['main_text'] ?></div>
+                                    <div class="contacts__block__metro" style="display: flex;"><?php echo $column_1['metro'] ?></div>
+                                    <?php 
+                                        if($column_1['route']){
+                                            ?>
+                                            <a href="<?php echo $column_1['route'] ?>" class="contacts__block__navigator">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/images/navigator.png" alt="Навигатор" width="30">
+                                                <span>Путь в Яндекс.Навигаторе</span>
+                                            </a>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                                <div class="contacts__block">
+                                    <?php $column_2 = $contacts['column_2'] ?>
+                                    <div class="contacts__block__title"><?php echo $column_2['title'] ?></div>
+                                    <div class="contacts__block__main"><?php echo $column_2['main_text'] ?></div>
+                                    <div class="contacts__block__blue"><?php echo $column_2['subtitle'] ?></div>
+                                </div>
+                                <div class="contacts__block">
+                                    <div class="contacts__block__title">Звоните</div>
+                                    <a href="tel:<?php echo $phone ?>" class="contacts__block__main"><?php echo $phoneVisible ?></a>
+                                    <div class="contacts__block__blue fancy-modal" data-src="#modal-callback">Заказать обратный звонок</div>
                                 </div>
                             </div>
                         </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="s-delegate is__nav-section" id="s-delegate">
-            <div class="container">
-            <div class="delegate lozad" data-background-image="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" data-loaded="true" style="background-image: url(&quot;<?php echo get_template_directory_uri(); ?>/images/bg.jpg&quot;);">
-                <div class="delegate__left">
-                    <div class="h2 delegate__title">
-                        Lorem ipsum dolor sit amet.				
-                    </div>
-                    <div class="delegate__descr">
-                        Мы общаемся с большим количеством врачей, и часто коллеги направляют своих пациентом к нам. Если вы столкнулись с этим, мы с радостью вам поможем!				
-                    </div>
-                    <form class="ajax-form faq__order__form">
-                        <input type="hidden" value="Делегирование пациента" name="form_subject">
-                        <div class="row">
-                        <div class="grid-6 grid-12_xs">
-                            <input type="text" name="user_name" placeholder="Ваше имя" data-label="Имя пользователя" class="input-text">
                         </div>
-                        <div class="grid-6 grid-12_xs">
-                            <input type="tel" name="user_tel" placeholder="Телефон*" data-label="Телефон" class="input-text" data-req="true" maxlength="18">
+                    </section>
+                <?php
+            }
+        ?>
+        
+        <?php $faq = get_field('faq') ?>
+        <?php 
+            if($faq) {
+                ?>
+                    <section class="s-faq is__nav-section" id="s-faq">
+                        <div class="container">
+                        <div class="sec-title sec-title--center">
+                            <div class="h2">
+                                <?php echo $faq['block_title'] ?>			
+                            </div>
                         </div>
-                        <div class="grid-12">
-                            <textarea name="user_comment" placeholder="Описание случая вашего пациента" data-label="Комментарий" class="input-text" rows="2"></textarea>
-                            <div class="form-bottom-row">
-                                <div class="form-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфиденциальности</a></div>
-                                <button type="submit" class="btn">Отправить вопрос</button>
+                        <div class="faq">
+                            <div class="faq__left">
+                                <div class="faq__questions">
+                                    <?php 
+                                        foreach ($faq['faq_list'] as $key => $value) {
+                                            ?>
+                                                <div class="faq__q <?php echo  $key == 0 ? 'active' : '' ?>">
+                                                    <span><?php echo $value['question'] ?></span>
+                                                </div>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="faq__right">
+                                <div class="faq__answers">
+                                    <?php 
+                                        foreach ($faq['faq_list'] as $key => $value) {
+                                            ?>
+                                                <div class="faq__a <?php echo  $key == 0 ? 'active' : '' ?>">
+                                                    <div class="faq__a__title"><?php echo $value['question'] ?></div>
+                                                    <div class="user-content faq__a__text"><?php echo $value['answer'] ?>
+                                                    </div>
+                                                </div>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                                <div class="faq__order">
+                                    <div class="ajax-form faq__order__form">
+                                        <div class="faq__order__title">Нужна детальная консультация?</div>
+                                        <div class="faq__order__subtitle">Оставьте заявку и мы свяжемся с вами в ближайшее время</div>
+                                        <?php echo do_shortcode('[contact-form-7 id="943" title="Форма вопроса"]') ?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         </div>
-                    </form>
-                </div>
-                <img data-src="<?php echo get_template_directory_uri(); ?>/images/man.png" alt="" class="lozad delegate__man" src="<?php echo get_template_directory_uri(); ?>/images/man.png" data-loaded="true">
-            </div>
-            </div>
-        </section>
+                    </section>
+                <?php
+            }
+        ?>
+
+        <?php $delegate = get_field('deelgate') ?>
+        <?php 
+            if($delegate) {
+                ?>
+                    <section class="s-delegate is__nav-section" id="s-delegate">
+                        <div class="container">
+                        <div class="delegate lozad" data-background-image="<?php echo $delegate['block_bg']['url'] ?>" data-loaded="true" style="background-image: url(<?php echo $delegate['block_bg']['url'] ?>);">
+                            <div class="delegate__left">
+                                <div class="h2 delegate__title">
+                                    <?php echo $delegate['block_title'] ?>				
+                                </div>
+                                <div class="delegate__descr">
+                                    <?php echo $delegate['block_subtitle'] ?>				
+                                </div>
+                                <div class="ajax-form faq__order__form">
+                                    <?php echo do_shortcode('[contact-form-7 id="943" title="Форма вопроса"]') ?>
+                                </div>
+                            </div>
+                            <img data-src="<?php echo $delegate['person_image']['url'] ?>" alt="" class="lozad delegate__man" src="<?php echo $delegate['person_image']['url'] ?>" data-loaded="true">
+                        </div>
+                        </div>
+                    </section>
+                <?php
+            }
+        ?>
+
         <footer class="s-footer">
             <div class="container">
             <div class="footer">
-                <div class="footer__copy">Все права защищены, 2022 </div>
+                <div class="footer__copy"><?php echo $footer['copyright'] ?></div>
                 <div class="footer__policy">
-                    <a href="#" class="blue-link" target="_blank">Политика конфиденциальности</a>
+                    <?php echo $footer['text'] ?>
                 </div>
                 <div class="footer__social">
                     <span>Мы в социальных сетях</span>
                     <div class="footer__social__list">
-                        <a href="#"><i class="i-vk"></i></a>
+                        <?php 
+                            foreach( $footer['socials_list'] as $social){
+                                ?>
+                                    <a href="<?php echo $social['url'] ?>"><i class="<?php echo $social['icon_class'] ?>"></i></a>
+                                <?php
+                            }
+                        ?>
                     </div>
                 </div>
-                <!-- <a href="https://penbrain.ru" target="_blank" class="footer__pen">
-                <span>Дизайн и разработка с любовью<br>к счастливым улыбкам</span>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pen.svg" alt="Pen&amp;Brain">
-                </a> -->
             </div>
             </div>
         </footer>
@@ -1060,3 +1012,4 @@
 </div>
 
 <?php get_footer(); ?>
+
