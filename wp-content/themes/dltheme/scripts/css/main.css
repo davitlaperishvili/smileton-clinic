@@ -6561,10 +6561,15 @@ section.custom_breadcrumbs .container nav ul li div {
 
 section.service_hero {
   position: relative;
-  min-height: 490px;
+  height: 490px;
+}
+section.service_hero .hero_wrap {
+  height: 100%;
+  padding: 30px 38px 70px;
 }
 section.service_hero .container {
   position: relative;
+  height: 100%;
 }
 section.service_hero .container figure {
   position: absolute;
@@ -6582,8 +6587,46 @@ section.service_hero .container figure img {
 section.service_hero .container .hero_content {
   position: relative;
   z-index: 2;
+  color: #111111;
+  height: 100%;
 }
-
+section.service_hero .container .hero_content .service_title {
+  margin-bottom: 20px;
+  font-size: 45px;
+  color: #111111;
+}
+section.service_hero .container .hero_content .service_hero_nav {
+  position: absolute;
+  bottom: 0;
+  left: -38px;
+  width: calc(100% + 76px);
+  background-color: #A18B79;
+  padding: 28px 38px;
+}
+section.service_hero .container .hero_content .service_hero_nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+section.service_hero .container .hero_content .service_hero_nav ul li a {
+  display: inline-flex;
+  position: relative;
+  color: #ffffff;
+  font-size: 16px;
+}
+section.service_hero .container .hero_content .service_hero_nav ul li a:after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+}
+section.service_hero .container .hero_content .service_desc {
+  font-size: 23px;
+}
 section.price_table {
   margin-bottom: 70px;
 }

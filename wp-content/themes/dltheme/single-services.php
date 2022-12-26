@@ -101,38 +101,40 @@
         </section>
         <section class="service_hero">
             <div class="container">
-                <figure>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/service_hero.jpg" alt="">
-                </figure>
-                <div class="hero_content">
-                    <h1 class="service_title">Имплантация зубов под ключ</h1>
-                    <div class="service_hero_nav">
-                        <ul>
-                            <li>
-                                <a href="">О процедуре</a>
-                            </li>
-                            <li>
-                                <a href="">Цены</a>
-                            </li>
-                            <li>
-                                <a href="">Врачи</a>
-                            </li>
-                            <li>
-                                <a href="">Акции</a>
-                            </li>
-                            <li>
-                                <a href="">Наши работы</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="service_desc">Акция на имплантацию зубов <br> Имплант Osstem + формирователь десны + работа</div>
-                    <div class="service_hero_buttons">
-                        <div class="theme_button">
-                            <a href="">Записаться</a>
+                <div class="hero_wrap">
+                    <figure>
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/service_hero.jpg" alt="">
+                    </figure>
+                    <div class="hero_content">
+                        <h1 class="service_title">Имплантация зубов под ключ</h1>
+                        <div class="service_hero_nav">
+                            <ul>
+                                <li>
+                                    <a href="">О процедуре</a>
+                                </li>
+                                <li>
+                                    <a href="">Цены</a>
+                                </li>
+                                <li>
+                                    <a href="">Врачи</a>
+                                </li>
+                                <li>
+                                    <a href="">Акции</a>
+                                </li>
+                                <li>
+                                    <a href="">Наши работы</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="sale">
-                            <span class="text">Успейте по старой цене</span>
-                            <span class="price">50 000 ₽</span>
+                        <div class="service_desc">Акция на имплантацию зубов <br> Имплант Osstem + формирователь десны + работа</div>
+                        <div class="service_hero_buttons">
+                            <div class="theme_button">
+                                <a href="">Записаться</a>
+                            </div>
+                            <div class="sale">
+                                <span class="text">Успейте по старой цене</span>
+                                <span class="price">50 000 ₽</span>
+                            </div>
                         </div>
                     </div>
                 </div>
