@@ -83,7 +83,16 @@
     </aside>
     <main class="page__main">
         <?php $hero = get_field('hero') ?>
-        <section class="s-intro" id="s-intro" style="background: url(<?php echo $hero['block_image']['url'] ?>) center center no-repeat var(--sectionBG);">
+        
+        <style>
+            @media(max-width: 1024px){
+                #s-intro{
+                    background: url(<?php echo $hero['block_image_mobile']['url'] ?>) center center no-repeat !important
+                }
+            }
+            
+        </style>
+        <section class="s-intro" id="s-intro" style="background: url(<?php echo $hero['block_image']['url'] ?>) center center no-repeat">
             <div class="container">
             <img src="<?php echo $site_logo['url'] ?>" alt="<?php echo $site_logo['alt'] ?>" class="logo-mob">
             <h1 class="h1">
@@ -297,9 +306,51 @@
                 <?php
             }
         ?>
+        <?php 
+            $table_headers = get_field('table_headers');
+            $table = get_field('table');
+        ?>
+        <?php 
+            if($table_headers['block_title']){
+                ?>
+                    <section class="price_table">
+                        <div class="container">
+                            <div class="sec-title ">
+                                <h2 class="h2"><?php echo $table_headers['block_title'] ?></h2>
+                            </div>
+                            <div class="custom_table">
+                                <div class="table_wrap">
+                                    <div class="table_header">
+                                        <div class="left"><?php echo $table_headers['left'] ?></div>
+                                        <div class="right"><?php echo $table_headers['right'] ?></div>
+                                    </div>
+                                    <div class="table_values">
+                                        <?php 
+                                            foreach( $table as $item) {
+                                                ?>
+                                                    <div class="table_value">
+                                                        <div class="value_header"><?php echo $item['row_title'] ?></div>
+                                                        <div class="value_content">
+                                                            <div class="title">
+                                                                <span><?php echo $item['left'] ?></span>
+                                                            </div>
+                                                            <div class="price_value"><?php echo $item['right'] ?></div>
+                                                        </div>
+                                                    </div>
+                                                <?php
+                                            }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                <?php
+            }
+        ?>
         <?php $expert = get_field('expert') ?>
         <?php 
-            if($expert){
+            if($expert['block_image']){
                 ?>
                 <section class="s-expert lozad" data-background-image="<?php echo $expert['block_image']['url'] ?>" data-loaded="true" style="background-image: url(<?php echo $expert['block_image']['url'] ?>);">
                     <div class="container">

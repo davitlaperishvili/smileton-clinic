@@ -16,6 +16,7 @@ $dl_includes = array(
 	'/widgets.php',
 	'/enqueue.php',
 	'/menus.php',
+	'/post_types.php',
 	'/options-page.php'
 );
 
