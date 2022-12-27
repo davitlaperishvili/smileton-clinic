@@ -40,7 +40,8 @@ section.custom_breadcrumbs{
 
 section.service_hero{
     position: relative;
-    height: 490px;
+    height: 590px;
+    margin-bottom: 70px;
     .hero_wrap{
         height: 100%;
         padding: 30px 38px 70px;
@@ -55,6 +56,7 @@ section.service_hero{
             width: 100%;
             height: 100%;
             padding: 0 60px 70px;
+            margin-bottom: 0;
             img{
                 width: 100%;
                 height: 100%;
@@ -103,20 +105,125 @@ section.service_hero{
                 }
             }
             .service_desc{
+                margin-bottom: 10px;
                 font-size: 23px;
             }
             .service_hero_buttons{
+                display: flex;
+                align-items: flex-end;
+                gap: 35px;
                 .theme_button{
                     a{
-
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 230px;
+                        height: 52px;
+                        color: $cwhite;
+                        border-radius: 8px;
+                        background-color: #0079FF;
                     }
                 }
                 .sale{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                    background-color: $cwhite;
+                    color: $cdark;
                     .text{
-
+                        font-size: 17px;
                     }
                     .price{
+                        all: unset;
+                        font-size: 37px;
+                    }
+                }
+            }
+        }
+    }
+}
 
+section.about_service{
+    margin-bottom: 100px;
+    .about_wrap{
+        display: grid;
+        grid-gap: 42px;
+        grid-template-columns: 1fr 1fr;
+        figure{
+            width: 100%;
+            img{
+                width: 100%;
+                max-height: 402px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+section.service_long_desc{
+    margin-bottom: 50px;
+    .section_text{
+        color: $cdark;
+        font-size: 23px;
+        h3{
+            margin: 30px 0;
+            font-size: 27px;
+            font-weight: 700;
+            color: $cdark;
+        }
+        h2{
+            margin: 40px 0;
+            font-size: 37px;
+        }
+        ul,ol{
+            list-style-position: inside;
+        }
+        ol{
+            list-style: none;
+            counter-reset: item;
+            li{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                counter-increment: item;
+                margin-bottom: 15px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                &::before{
+                    content: counter(item);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 50px;
+                    height: 50px;
+                    background-color: $ccorp;
+                    color: $cwhite;
+                    font-size: 17px;
+                    margin-right: 15px;
+                }
+            }
+        }
+        table{
+            margin: 40px 0 ;
+            tbody{
+                border: 1px solid $ccorp;
+                tr{
+                    display: flex;
+                    align-items: center;
+                    height: auto !important;
+                    padding: 20px;
+                    border-bottom: 1px solid $ccorp;
+                    &:first-child{
+                        background-color: $ccorp;
+                        color: $cwhite;
+                    }
+                    &:last-child{
+                        border-bottom: none;
+                    }
+                    td{
+                        height: auto !important;
                     }
                 }
             }

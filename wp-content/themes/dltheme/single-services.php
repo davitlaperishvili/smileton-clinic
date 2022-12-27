@@ -99,14 +99,39 @@
                 </nav>
             </div>
         </section>
-        <section class="service_hero">
+        <?php 
+        if( have_rows('service_info') ):
+
+                // Loop through rows.
+                while ( have_rows('service_info') ) : the_row();
+            
+                    // Case: Paragraph layout.
+                    if( get_row_layout() == 'service_hero' ):
+                        include(TEMPLATEPATH.'/acf-widgets/widget-service-hero.php');
+                    
+                    elseif( get_row_layout() == 'text_image_block' ):
+                        include(TEMPLATEPATH.'/acf-widgets/widget-service-about.php');
+                    
+                    elseif( get_row_layout() == 'text_section' ):
+                        include(TEMPLATEPATH.'/acf-widgets/widget-service-desc.php');
+                    
+                    elseif( get_row_layout() == 'price_table' ):
+                        include(TEMPLATEPATH.'/acf-widgets/widget-service-price-table.php');
+
+                    endif;
+                endwhile;
+            
+            else :
+            endif;
+        ?>
+        <!-- <section class="service_hero">
             <div class="container">
                 <div class="hero_wrap">
                     <figure>
                         <img src="<?php echo get_template_directory_uri(); ?>/images/service_hero.jpg" alt="">
                     </figure>
                     <div class="hero_content">
-                        <h1 class="service_title">Имплантация зубов под ключ</h1>
+                        <h1 class="service_title">Имплантация <br> зубов под ключ</h1>
                         <div class="service_hero_nav">
                             <ul>
                                 <li>
@@ -126,7 +151,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="service_desc">Акция на имплантацию зубов <br> Имплант Osstem + формирователь десны + работа</div>
+                        <div class="service_desc">Акция на имплантацию зубов <br> Имплант Osstem + формирователь <br> десны + работа</div>
                         <div class="service_hero_buttons">
                             <div class="theme_button">
                                 <a href="">Записаться</a>
@@ -147,8 +172,8 @@
                 </div>
                 <div class="about_wrap">
                     <div class="about_text">
-                        <p>Это комплекс подготовительных, хирургических и ортопедических мероприятий по восстановлению одного, нескольких или всех утраченных зубов методом установки имплантантов с последующим протезированием за фиксированную цену.</p>
-                        <p>Таким образом, до начала лечения вы узнаете точную цену всех манипуляций, необходимых для восстановления целостности зубного ряда.</p>
+                        <p style="font-size: 23px">Это комплекс подготовительных, хирургических и ортопедических мероприятий по восстановлению одного, нескольких или всех утраченных зубов методом установки имплантантов с последующим протезированием за фиксированную цену.</p>
+                        <p style="font-size: 17px">Таким образом, до начала лечения вы узнаете точную цену всех манипуляций, необходимых для восстановления целостности зубного ряда.</p>
                     </div>
                     <figure>
                         <img src="<?php echo get_template_directory_uri(); ?>/images/about_service.jpg" alt="">
@@ -158,8 +183,8 @@
         </section>
         <section class="service_long_desc">
             <div class="container">
-                <h2>Что влияет на стоимость зубного импланта под ключ?</h2>
                 <div class="section_text">
+                    <h2>Что влияет на стоимость зубного импланта под ключ?</h2>
                     <h3>1. Бренд имплантата</h3>
                     <p>В нашей стоматологии применяются имплантаты эконом (OSSTEM, DENTIUM) и премиум класса (ASTRA TECH, NOBEL). Каждый из брендов отличается высоким показателем приживаемости и подходит под большинство клинических случаев. <br> Выбор оптимальной системы имплантации обсуждается с пациентом во время планирования лечения с учетом:</p>
                     <ul>
@@ -263,7 +288,9 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
+
+
         <?php $cases = get_field('cases',734) ?>
         <?php 
             if($cases) {
