@@ -38,7 +38,7 @@
                     ?>
                     <div class="service_hero_buttons">
                         <div class="theme_button">
-                            <a href="">Записаться</a>
+                            <a href="javascript:void(0)" class="fancy-modal" data-src="#modal-callback">Записаться</a>
                         </div>
                         <?php 
                             if($service_hero_sale['text']){

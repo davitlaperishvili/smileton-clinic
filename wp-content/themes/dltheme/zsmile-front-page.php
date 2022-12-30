@@ -83,7 +83,7 @@
     </aside>
     <main class="page__main">
         <?php $hero = get_field('hero') ?>
-        <section class="s-intro" id="s-intro" style="background: url(<?php echo $hero['block_image']['url'] ?>) center center no-repeat var(--sectionBG);">
+        <section class="s-intro" id="s-intro" style="background: url(<?php echo $hero['block_image']['url'] ?>) center center no-repeat">
             <div class="container">
             <img src="<?php echo $site_logo['url'] ?>" alt="<?php echo $site_logo['alt'] ?>" class="logo-mob">
             <h1 class="h1">

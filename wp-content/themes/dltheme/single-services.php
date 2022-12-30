@@ -10,7 +10,7 @@
 	$adress = get_field('adress', 'option');
 	$site_logo = get_field('site_logo', 'option');
 	$footer = get_field('footer', 'option');
-	$site_menu = get_field('site_menu', 'option');
+	$site_menu = get_field('page_menu');
 ?>
 <div id="panel"></div>
 <div class="burger">
@@ -23,16 +23,29 @@
             <a href="#s-intro" class="scrollto"><img src="<?php echo $site_logo['url'] ?>" alt="<?php echo $site_logo['alt'] ?>" class="aside__logo"></a>
             <nav class="aside__nav">
                 <?php 
-                    foreach( $site_menu as $item ){
-                        ?>
-                            <a href="<?php echo $item['url'] ?>" class="aside__nav__link scrollto">
-                                <i class="<?php echo $item['icon_class'] ?>"></i>
-                                <span><?php echo $item['title'] ?></span>
-                            </a>
-                        <?php
-                    }
+                    if($site_menu){
+                        foreach( $site_menu as $item ){
+                            ?>
+                                <a href="<?php echo $item['url'] ?>" class="aside__nav__link">
+                                    <?php 
+                                        if($item['icon_class']){
+                                            ?>  
+                                                <i class="<?php echo $item['icon_class'] ?>"></i>
+                                            <?php
+                                        }
+                                    ?>
+                                    <span><?php echo $item['title'] ?></span>
+                                </a>
+                            <?php
+                        }
+                    } 
                 ?>
             </nav>
+            <div class="call_now">
+                <div class="theme_button">
+                    <a href="javascript:void(0)" class="fancy-modal" data-src="#modal-callback">Заказать звонок</a>
+                </div>
+            </div>
             <div class="aside__phone">
                 <i class="i-phone"></i>
                 <div class="aside__phone__main">
@@ -291,9 +304,9 @@
         </section> -->
 
 
-        <?php $cases = get_field('cases',734) ?>
+        <?php $cases = get_field('cases') ?>
         <?php 
-            if($cases) {
+            if($cases['cases_list']) {
                 ?>
                     <section class="s-cases is__nav-section" id="s-cases">
                         <div class="container">
@@ -564,9 +577,9 @@
             }
         ?>
         
-        <?php $services = get_field('services',734) ?>
+        <?php $services = get_field('services') ?>
         <?php 
-            if($services){
+            if($services['services_cat']){
                 ?>
                     <section class="s-services is__nav-section" id="s-services">
                         <div class="container">
@@ -665,9 +678,9 @@
                 <?php
             }
         ?>
-        <?php $faq = get_field('faq',734) ?>
+        <?php $faq = get_field('faq') ?>
         <?php 
-            if($faq) {
+            if($faq['faq_list']) {
                 ?>
                     <section class="s-faq is__nav-section" id="s-faq">
                         <div class="container">
@@ -718,7 +731,50 @@
                 <?php
             }
         ?>
-
+        <?php 
+            $contacts = get_field('contacts', 734)
+        ?>
+        <?php 
+            if($contacts) {
+                ?>  
+                    <section class="s-contacts is__nav-section" id="s-contacts">
+                        <div class="container">
+                        <div class="border-block contacts">
+                            <div class="border-block__content">
+                                <div class="contacts__block">
+                                    <?php $column_1 = $contacts['column_1'] ?>
+                                    <div class="contacts__block__title"><?php echo $column_1['title'] ?></div>
+                                    <div class="contacts__block__main"><?php echo $column_1['main_text'] ?></div>
+                                    <div class="contacts__block__metro" style="display: flex;"><?php echo $column_1['metro'] ?></div>
+                                    <?php 
+                                        if($column_1['route']){
+                                            ?>
+                                            <a href="<?php echo $column_1['route'] ?>" class="contacts__block__navigator">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/images/navigator.png" alt="Навигатор" width="30">
+                                                <span>Путь в Яндекс.Навигаторе</span>
+                                            </a>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                                <div class="contacts__block">
+                                    <?php $column_2 = $contacts['column_2'] ?>
+                                    <div class="contacts__block__title"><?php echo $column_2['title'] ?></div>
+                                    <div class="contacts__block__main"><?php echo $column_2['main_text'] ?></div>
+                                    <div class="contacts__block__blue"><?php echo $column_2['subtitle'] ?></div>
+                                </div>
+                                <div class="contacts__block">
+                                    <div class="contacts__block__title">Звоните</div>
+                                    <a href="tel:<?php echo $phone ?>" class="contacts__block__main"><?php echo $phoneVisible ?></a>
+                                    <div class="contacts__block__blue fancy-modal" data-src="#modal-callback">Заказать обратный звонок</div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </section>
+                <?php
+            }
+        ?>
         <footer class="s-footer">
             <div class="container">
             <div class="footer">

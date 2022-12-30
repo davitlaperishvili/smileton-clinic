@@ -12,6 +12,9 @@
   $cwhite: #ffffff;
   $cdark: #111111;
 
+  html{
+    scroll-behavior: smooth;
+  }
 
 body.compensate-for-scrollbar {
   overflow: hidden;
@@ -2719,6 +2722,8 @@ label {
       -ms-flex-negative: 0;
           flex-shrink: 0;
   margin-left: 20px;
+  max-width: 60px;
+  border-radius: 50%;
 }
 
 .form-header__bubble {
@@ -2963,7 +2968,7 @@ button::-moz-focus-inner {
 }
 @media (max-width: 1500px) {
   .page__aside {
-    width: 200px;
+    width: 230px;
   }
 }
 @media (max-width: 1024px) {
@@ -3107,7 +3112,7 @@ button::-moz-focus-inner {
 }
 @media (max-width: 1500px) {
   .aside__nav__link span, .aside__nav__page span {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 .aside__nav__link i, .aside__nav__page i {

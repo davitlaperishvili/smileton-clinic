@@ -76,7 +76,7 @@ section.service_hero{
                 height: 280px;
                 padding: 0;
                 margin: 0 -15px;
-                width: calc(100% + 15px);
+                width: calc(100% + 30px);
                 margin-bottom: 20px;
             }
             img{
@@ -504,6 +504,27 @@ section.price_table{
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.call_now{
+    margin-bottom: 20px;
+    .theme_button{
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 230px;
+            height: 52px;
+            color: $cwhite;
+            border-radius: 8px;
+            background-color: #0079FF;
+            font-size: 20px;
+            @media(max-width: 1024px){
+                width: 100%;
+                height: 48px;
             }
         }
     }
